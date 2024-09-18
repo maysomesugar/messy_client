@@ -4,7 +4,7 @@ import 'package:messy_client/core/utils/errors/failures/network_failure.dart';
 import 'package:messy_client/features/register/data/datasources/remote/register_remote_datasource.dart';
 import 'package:messy_client/features/register/domain/repository/register_repository.dart';
 import 'package:messy_client/shared/data/mapper/token_mapper.dart';
-import 'package:messy_client/shared/domain/model/user_model.dart';
+import 'package:messy_client/shared/domain/model/token_model.dart';
 
 class RegisterRepositoryImpl extends RegisterRepository {
   final RegisterRemoteDatasource _registerRemoteDatasource;

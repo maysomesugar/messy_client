@@ -12,7 +12,7 @@ class AuthTokenRepositoryImpl extends AuthTokenRepository {
   AuthTokenRepositoryImpl(this._authTokenRemoteDatasource);
 
   @override
-  Future<Either<Failure, TokenModel>> authToken(String token) async {
+  Future<Either<Failure, UserModel>> authToken(String token) async {
     try {
       final user = await _authTokenRemoteDatasource.authToken(token);
 

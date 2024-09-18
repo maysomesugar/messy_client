@@ -3,10 +3,8 @@ import 'package:messy_client/core/utils/errors/failures/failure.dart';
 import 'package:messy_client/core/utils/errors/failures/network_failure.dart';
 import 'package:messy_client/features/auth/data/datasource/remote/auth_remote_datasource.dart';
 import 'package:messy_client/shared/data/mapper/token_mapper.dart';
-import 'package:messy_client/features/auth/domain/model/token_model.dart';
+import 'package:messy_client/shared/domain/model/token_model.dart';
 import 'package:messy_client/features/auth/domain/repository/auth_repository.dart';
-import 'package:messy_client/shared/data/mapper/user_mapper.dart';
-import 'package:messy_client/shared/domain/model/user_model.dart';
 
 class AuthRepositoryImpl extends AuthRepository {
   final AuthRemoteDatasource _authRemoteDatasource;

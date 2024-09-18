@@ -1,6 +1,5 @@
 import 'package:messy_client/features/auth/data/datasource/remote/auth_remote_datasource.dart';
-import 'package:messy_client/features/auth/data/dto/token_dto.dart';
-import 'package:messy_client/shared/data/dto/user_dto/user_dto.dart';
+import 'package:messy_client/shared/data/dto/token_dto/token_dto.dart';
 
 class AuthRemoteDatasourceMockImpl extends AuthRemoteDatasource {
   @override
@@ -12,13 +11,5 @@ class AuthRemoteDatasourceMockImpl extends AuthRemoteDatasource {
     } else {
       throw Exception();
     }
-  }
-
-  @override
-  Future<UserDto> authToken(String token) async {
-    return UserDto(
-      username: token,
-      number: token,
-    );
   }
 }

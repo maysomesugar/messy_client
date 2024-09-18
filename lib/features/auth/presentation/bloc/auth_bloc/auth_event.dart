@@ -6,7 +6,4 @@ sealed class AuthEvent with _$AuthEvent {
     required String username,
     required String password,
   }) = AuthLoginEvent;
-  const factory AuthEvent.authToken({
-    required String token,
-  }) = AuthTokenEvent;
 }

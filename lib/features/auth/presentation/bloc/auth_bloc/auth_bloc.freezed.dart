@@ -16,43 +16,45 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$AuthEvent {
+  String get username => throw _privateConstructorUsedError;
+  String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String username, String password) authLogin,
-    required TResult Function(String token) authToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username, String password)? authLogin,
-    TResult? Function(String token)? authToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username, String password)? authLogin,
-    TResult Function(String token)? authToken,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthLoginEvent value) authLogin,
-    required TResult Function(AuthTokenEvent value) authToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthLoginEvent value)? authLogin,
-    TResult? Function(AuthTokenEvent value)? authToken,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthLoginEvent value)? authLogin,
-    TResult Function(AuthTokenEvent value)? authToken,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  /// Create a copy of AuthEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AuthEventCopyWith<AuthEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -60,6 +62,8 @@ mixin _$AuthEvent {
 abstract class $AuthEventCopyWith<$Res> {
   factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
       _$AuthEventCopyWithImpl<$Res, AuthEvent>;
+  @useResult
+  $Res call({String username, String password});
 }
 
 /// @nodoc
@@ -74,13 +78,32 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? username = null,
+    Object? password = null,
+  }) {
+    return _then(_value.copyWith(
+      username: null == username
+          ? _value.username
+          : username // ignore: cast_nullable_to_non_nullable
+              as String,
+      password: null == password
+          ? _value.password
+          : password // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$AuthLoginEventImplCopyWith<$Res> {
+abstract class _$$AuthLoginEventImplCopyWith<$Res>
+    implements $AuthEventCopyWith<$Res> {
   factory _$$AuthLoginEventImplCopyWith(_$AuthLoginEventImpl value,
           $Res Function(_$AuthLoginEventImpl) then) =
       __$$AuthLoginEventImplCopyWithImpl<$Res>;
+  @override
   @useResult
   $Res call({String username, String password});
 }
@@ -156,7 +179,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String username, String password) authLogin,
-    required TResult Function(String token) authToken,
   }) {
     return authLogin(username, password);
   }
@@ -165,7 +187,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String username, String password)? authLogin,
-    TResult? Function(String token)? authToken,
   }) {
     return authLogin?.call(username, password);
   }
@@ -174,7 +195,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String username, String password)? authLogin,
-    TResult Function(String token)? authToken,
     required TResult orElse(),
   }) {
     if (authLogin != null) {
@@ -187,7 +207,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(AuthLoginEvent value) authLogin,
-    required TResult Function(AuthTokenEvent value) authToken,
   }) {
     return authLogin(this);
   }
@@ -196,7 +215,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(AuthLoginEvent value)? authLogin,
-    TResult? Function(AuthTokenEvent value)? authToken,
   }) {
     return authLogin?.call(this);
   }
@@ -205,7 +223,6 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(AuthLoginEvent value)? authLogin,
-    TResult Function(AuthTokenEvent value)? authToken,
     required TResult orElse(),
   }) {
     if (authLogin != null) {
@@ -220,155 +237,16 @@ abstract class AuthLoginEvent implements AuthEvent {
       {required final String username,
       required final String password}) = _$AuthLoginEventImpl;
 
+  @override
   String get username;
+  @override
   String get password;
 
   /// Create a copy of AuthEvent
   /// with the given fields replaced by the non-null parameter values.
+  @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AuthLoginEventImplCopyWith<_$AuthLoginEventImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$AuthTokenEventImplCopyWith<$Res> {
-  factory _$$AuthTokenEventImplCopyWith(_$AuthTokenEventImpl value,
-          $Res Function(_$AuthTokenEventImpl) then) =
-      __$$AuthTokenEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String token});
-}
-
-/// @nodoc
-class __$$AuthTokenEventImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$AuthTokenEventImpl>
-    implements _$$AuthTokenEventImplCopyWith<$Res> {
-  __$$AuthTokenEventImplCopyWithImpl(
-      _$AuthTokenEventImpl _value, $Res Function(_$AuthTokenEventImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? token = null,
-  }) {
-    return _then(_$AuthTokenEventImpl(
-      token: null == token
-          ? _value.token
-          : token // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$AuthTokenEventImpl implements AuthTokenEvent {
-  const _$AuthTokenEventImpl({required this.token});
-
-  @override
-  final String token;
-
-  @override
-  String toString() {
-    return 'AuthEvent.authToken(token: $token)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AuthTokenEventImpl &&
-            (identical(other.token, token) || other.token == token));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, token);
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AuthTokenEventImplCopyWith<_$AuthTokenEventImpl> get copyWith =>
-      __$$AuthTokenEventImplCopyWithImpl<_$AuthTokenEventImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String username, String password) authLogin,
-    required TResult Function(String token) authToken,
-  }) {
-    return authToken(token);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String username, String password)? authLogin,
-    TResult? Function(String token)? authToken,
-  }) {
-    return authToken?.call(token);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String username, String password)? authLogin,
-    TResult Function(String token)? authToken,
-    required TResult orElse(),
-  }) {
-    if (authToken != null) {
-      return authToken(token);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(AuthLoginEvent value) authLogin,
-    required TResult Function(AuthTokenEvent value) authToken,
-  }) {
-    return authToken(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthLoginEvent value)? authLogin,
-    TResult? Function(AuthTokenEvent value)? authToken,
-  }) {
-    return authToken?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthLoginEvent value)? authLogin,
-    TResult Function(AuthTokenEvent value)? authToken,
-    required TResult orElse(),
-  }) {
-    if (authToken != null) {
-      return authToken(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class AuthTokenEvent implements AuthEvent {
-  const factory AuthTokenEvent({required final String token}) =
-      _$AuthTokenEventImpl;
-
-  String get token;
-
-  /// Create a copy of AuthEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthTokenEventImplCopyWith<_$AuthTokenEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 

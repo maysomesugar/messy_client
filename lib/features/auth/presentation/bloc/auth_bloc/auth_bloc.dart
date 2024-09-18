@@ -1,7 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:messy_client/features/auth/domain/usecase/auth_login_usecase.dart';
-import 'package:messy_client/features/auth/domain/usecase/auth_token_usecase.dart';
+import 'package:messy_client/shared/domain/usecase/auth_token_usecase.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
@@ -9,14 +9,11 @@ part 'auth_bloc.freezed.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final AuthLoginUsecase _authLoginUsecase;
-  final AuthTokenUsecase _authTokenUsecase;
 
   AuthBloc(
     this._authLoginUsecase,
-    this._authTokenUsecase,
   ) : super(const AuthState.init()) {
     on<AuthLoginEvent>(_authLogin);
-    on<AuthTokenEvent>(_authToken);
   }
 
   Future<void> _authLogin(AuthLoginEvent event, Emitter<AuthState> emit) async {
@@ -24,14 +21,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       const AuthState.loading(),
     );
 
-    final tokenResult = await _authLoginUsecase(
+    final authLoginResult = await _authLoginUsecase(
       AuthLoginParams(
         username: event.username,
         password: event.password,
       ),
     );
 
-    tokenResult.fold(
+    authLoginResult.fold(
       (failure) {
         emit(
           AuthState.error(
@@ -40,38 +37,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         );
       },
       (token) {
-        add(
-          AuthEvent.authToken(
-            token: token.token,
-          ),
-        );
-      },
-    );
-  }
-
-  Future<void> _authToken(AuthTokenEvent event, Emitter<AuthState> emit) async {
-    emit(
-      const AuthState.loading(),
-    );
-
-    final userResult = await _authTokenUsecase(
-      AuthTokenParams(
-        token: event.token,
-      ),
-    );
-
-    userResult.fold(
-      (failure) {
-        emit(
-          AuthState.error(
-            message: failure.message,
-          ),
-        );
-      },
-      (user) {
-        emit(
-          const AuthState.success(),
-        );
+        emit(const AuthState.success());
       },
     );
   }
