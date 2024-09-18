@@ -1,5 +1,10 @@
 import 'package:get_it/get_it.dart';
+import 'package:messy_client/features/auth/auth_injections.dart';
+import 'package:messy_client/features/chat/chats_injections.dart';
 
 final sl = GetIt.instance;
 
-Future<void> initInjectinos() async {}
+Future<void> initInjections() async {
+  await initChatInjections();
+  await initAuthInjections();
+}

@@ -20,7 +20,9 @@ ChatDto _$ChatDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ChatDto {
+  String get id => throw _privateConstructorUsedError;
   UserDto get user => throw _privateConstructorUsedError;
+  bool get pinned => throw _privateConstructorUsedError;
 
   /// Serializes this ChatDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +38,7 @@ abstract class $ChatDtoCopyWith<$Res> {
   factory $ChatDtoCopyWith(ChatDto value, $Res Function(ChatDto) then) =
       _$ChatDtoCopyWithImpl<$Res, ChatDto>;
   @useResult
-  $Res call({UserDto user});
+  $Res call({String id, UserDto user, bool pinned});
 
   $UserDtoCopyWith<$Res> get user;
 }
@@ -56,13 +58,23 @@ class _$ChatDtoCopyWithImpl<$Res, $Val extends ChatDto>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? user = null,
+    Object? pinned = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserDto,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -84,7 +96,7 @@ abstract class _$$ChatDtoImplCopyWith<$Res> implements $ChatDtoCopyWith<$Res> {
       __$$ChatDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({UserDto user});
+  $Res call({String id, UserDto user, bool pinned});
 
   @override
   $UserDtoCopyWith<$Res> get user;
@@ -103,13 +115,23 @@ class __$$ChatDtoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? user = null,
+    Object? pinned = null,
   }) {
     return _then(_$ChatDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       user: null == user
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserDto,
+      pinned: null == pinned
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -117,17 +139,22 @@ class __$$ChatDtoImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$ChatDtoImpl implements _ChatDto {
-  const _$ChatDtoImpl({required this.user});
+  const _$ChatDtoImpl(
+      {required this.id, required this.user, required this.pinned});
 
   factory _$ChatDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ChatDtoImplFromJson(json);
 
   @override
+  final String id;
+  @override
   final UserDto user;
+  @override
+  final bool pinned;
 
   @override
   String toString() {
-    return 'ChatDto(user: $user)';
+    return 'ChatDto(id: $id, user: $user, pinned: $pinned)';
   }
 
   @override
@@ -135,12 +162,14 @@ class _$ChatDtoImpl implements _ChatDto {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatDtoImpl &&
-            (identical(other.user, user) || other.user == user));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.user, user) || other.user == user) &&
+            (identical(other.pinned, pinned) || other.pinned == pinned));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, user);
+  int get hashCode => Object.hash(runtimeType, id, user, pinned);
 
   /// Create a copy of ChatDto
   /// with the given fields replaced by the non-null parameter values.
@@ -159,12 +188,19 @@ class _$ChatDtoImpl implements _ChatDto {
 }
 
 abstract class _ChatDto implements ChatDto {
-  const factory _ChatDto({required final UserDto user}) = _$ChatDtoImpl;
+  const factory _ChatDto(
+      {required final String id,
+      required final UserDto user,
+      required final bool pinned}) = _$ChatDtoImpl;
 
   factory _ChatDto.fromJson(Map<String, dynamic> json) = _$ChatDtoImpl.fromJson;
 
   @override
+  String get id;
+  @override
   UserDto get user;
+  @override
+  bool get pinned;
 
   /// Create a copy of ChatDto
   /// with the given fields replaced by the non-null parameter values.

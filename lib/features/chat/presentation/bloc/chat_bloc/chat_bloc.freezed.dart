@@ -642,32 +642,62 @@ mixin _$ChatEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -735,6 +765,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
   }) {
     return getChats();
   }
@@ -743,6 +778,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
   }) {
     return getChats?.call();
   }
@@ -751,6 +791,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
     required TResult orElse(),
   }) {
     if (getChats != null) {
@@ -763,6 +808,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
   }) {
     return getChats(this);
   }
@@ -771,6 +821,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
   }) {
     return getChats?.call(this);
   }
@@ -779,6 +834,11 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
     required TResult orElse(),
   }) {
     if (getChats != null) {
@@ -790,4 +850,846 @@ class _$ChatGetChatsEventImpl implements ChatGetChatsEvent {
 
 abstract class ChatGetChatsEvent implements ChatEvent {
   const factory ChatGetChatsEvent() = _$ChatGetChatsEventImpl;
+}
+
+/// @nodoc
+abstract class _$$ChatArchiveChatEventImplCopyWith<$Res> {
+  factory _$$ChatArchiveChatEventImplCopyWith(_$ChatArchiveChatEventImpl value,
+          $Res Function(_$ChatArchiveChatEventImpl) then) =
+      __$$ChatArchiveChatEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$ChatArchiveChatEventImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$ChatArchiveChatEventImpl>
+    implements _$$ChatArchiveChatEventImplCopyWith<$Res> {
+  __$$ChatArchiveChatEventImplCopyWithImpl(_$ChatArchiveChatEventImpl _value,
+      $Res Function(_$ChatArchiveChatEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$ChatArchiveChatEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatArchiveChatEventImpl implements ChatArchiveChatEvent {
+  const _$ChatArchiveChatEventImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ChatEvent.archiveChat(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatArchiveChatEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatArchiveChatEventImplCopyWith<_$ChatArchiveChatEventImpl>
+      get copyWith =>
+          __$$ChatArchiveChatEventImplCopyWithImpl<_$ChatArchiveChatEventImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+  }) {
+    return archiveChat(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+  }) {
+    return archiveChat?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (archiveChat != null) {
+      return archiveChat(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
+  }) {
+    return archiveChat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
+  }) {
+    return archiveChat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (archiveChat != null) {
+      return archiveChat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatArchiveChatEvent implements ChatEvent {
+  const factory ChatArchiveChatEvent({required final String id}) =
+      _$ChatArchiveChatEventImpl;
+
+  String get id;
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatArchiveChatEventImplCopyWith<_$ChatArchiveChatEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatBlockUserEventImplCopyWith<$Res> {
+  factory _$$ChatBlockUserEventImplCopyWith(_$ChatBlockUserEventImpl value,
+          $Res Function(_$ChatBlockUserEventImpl) then) =
+      __$$ChatBlockUserEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$ChatBlockUserEventImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$ChatBlockUserEventImpl>
+    implements _$$ChatBlockUserEventImplCopyWith<$Res> {
+  __$$ChatBlockUserEventImplCopyWithImpl(_$ChatBlockUserEventImpl _value,
+      $Res Function(_$ChatBlockUserEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$ChatBlockUserEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatBlockUserEventImpl implements ChatBlockUserEvent {
+  const _$ChatBlockUserEventImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ChatEvent.blockUser(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatBlockUserEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatBlockUserEventImplCopyWith<_$ChatBlockUserEventImpl> get copyWith =>
+      __$$ChatBlockUserEventImplCopyWithImpl<_$ChatBlockUserEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+  }) {
+    return blockUser(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+  }) {
+    return blockUser?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (blockUser != null) {
+      return blockUser(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
+  }) {
+    return blockUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
+  }) {
+    return blockUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (blockUser != null) {
+      return blockUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatBlockUserEvent implements ChatEvent {
+  const factory ChatBlockUserEvent({required final String id}) =
+      _$ChatBlockUserEventImpl;
+
+  String get id;
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatBlockUserEventImplCopyWith<_$ChatBlockUserEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatDeleteChatEventImplCopyWith<$Res> {
+  factory _$$ChatDeleteChatEventImplCopyWith(_$ChatDeleteChatEventImpl value,
+          $Res Function(_$ChatDeleteChatEventImpl) then) =
+      __$$ChatDeleteChatEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id, bool forBoth});
+}
+
+/// @nodoc
+class __$$ChatDeleteChatEventImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$ChatDeleteChatEventImpl>
+    implements _$$ChatDeleteChatEventImplCopyWith<$Res> {
+  __$$ChatDeleteChatEventImplCopyWithImpl(_$ChatDeleteChatEventImpl _value,
+      $Res Function(_$ChatDeleteChatEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? forBoth = null,
+  }) {
+    return _then(_$ChatDeleteChatEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      forBoth: null == forBoth
+          ? _value.forBoth
+          : forBoth // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatDeleteChatEventImpl implements ChatDeleteChatEvent {
+  const _$ChatDeleteChatEventImpl({required this.id, required this.forBoth});
+
+  @override
+  final String id;
+  @override
+  final bool forBoth;
+
+  @override
+  String toString() {
+    return 'ChatEvent.deleteChat(id: $id, forBoth: $forBoth)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatDeleteChatEventImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.forBoth, forBoth) || other.forBoth == forBoth));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id, forBoth);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatDeleteChatEventImplCopyWith<_$ChatDeleteChatEventImpl> get copyWith =>
+      __$$ChatDeleteChatEventImplCopyWithImpl<_$ChatDeleteChatEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+  }) {
+    return deleteChat(id, forBoth);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+  }) {
+    return deleteChat?.call(id, forBoth);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (deleteChat != null) {
+      return deleteChat(id, forBoth);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
+  }) {
+    return deleteChat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
+  }) {
+    return deleteChat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (deleteChat != null) {
+      return deleteChat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatDeleteChatEvent implements ChatEvent {
+  const factory ChatDeleteChatEvent(
+      {required final String id,
+      required final bool forBoth}) = _$ChatDeleteChatEventImpl;
+
+  String get id;
+  bool get forBoth;
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatDeleteChatEventImplCopyWith<_$ChatDeleteChatEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatMarkAsUnreadEventImplCopyWith<$Res> {
+  factory _$$ChatMarkAsUnreadEventImplCopyWith(
+          _$ChatMarkAsUnreadEventImpl value,
+          $Res Function(_$ChatMarkAsUnreadEventImpl) then) =
+      __$$ChatMarkAsUnreadEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$ChatMarkAsUnreadEventImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$ChatMarkAsUnreadEventImpl>
+    implements _$$ChatMarkAsUnreadEventImplCopyWith<$Res> {
+  __$$ChatMarkAsUnreadEventImplCopyWithImpl(_$ChatMarkAsUnreadEventImpl _value,
+      $Res Function(_$ChatMarkAsUnreadEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$ChatMarkAsUnreadEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatMarkAsUnreadEventImpl implements ChatMarkAsUnreadEvent {
+  const _$ChatMarkAsUnreadEventImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ChatEvent.markAsUnread(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatMarkAsUnreadEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatMarkAsUnreadEventImplCopyWith<_$ChatMarkAsUnreadEventImpl>
+      get copyWith => __$$ChatMarkAsUnreadEventImplCopyWithImpl<
+          _$ChatMarkAsUnreadEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+  }) {
+    return markAsUnread(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+  }) {
+    return markAsUnread?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (markAsUnread != null) {
+      return markAsUnread(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
+  }) {
+    return markAsUnread(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
+  }) {
+    return markAsUnread?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (markAsUnread != null) {
+      return markAsUnread(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatMarkAsUnreadEvent implements ChatEvent {
+  const factory ChatMarkAsUnreadEvent({required final String id}) =
+      _$ChatMarkAsUnreadEventImpl;
+
+  String get id;
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatMarkAsUnreadEventImplCopyWith<_$ChatMarkAsUnreadEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatPinChatEventImplCopyWith<$Res> {
+  factory _$$ChatPinChatEventImplCopyWith(_$ChatPinChatEventImpl value,
+          $Res Function(_$ChatPinChatEventImpl) then) =
+      __$$ChatPinChatEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String id});
+}
+
+/// @nodoc
+class __$$ChatPinChatEventImplCopyWithImpl<$Res>
+    extends _$ChatEventCopyWithImpl<$Res, _$ChatPinChatEventImpl>
+    implements _$$ChatPinChatEventImplCopyWith<$Res> {
+  __$$ChatPinChatEventImplCopyWithImpl(_$ChatPinChatEventImpl _value,
+      $Res Function(_$ChatPinChatEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+  }) {
+    return _then(_$ChatPinChatEventImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatPinChatEventImpl implements ChatPinChatEvent {
+  const _$ChatPinChatEventImpl({required this.id});
+
+  @override
+  final String id;
+
+  @override
+  String toString() {
+    return 'ChatEvent.pinChat(id: $id)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatPinChatEventImpl &&
+            (identical(other.id, id) || other.id == id));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, id);
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatPinChatEventImplCopyWith<_$ChatPinChatEventImpl> get copyWith =>
+      __$$ChatPinChatEventImplCopyWithImpl<_$ChatPinChatEventImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+  }) {
+    return pinChat(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+  }) {
+    return pinChat?.call(id);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (pinChat != null) {
+      return pinChat(id);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatGetChatsEvent value) getChats,
+    required TResult Function(ChatArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatBlockUserEvent value) blockUser,
+    required TResult Function(ChatDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatPinChatEvent value) pinChat,
+  }) {
+    return pinChat(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatGetChatsEvent value)? getChats,
+    TResult? Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatBlockUserEvent value)? blockUser,
+    TResult? Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatPinChatEvent value)? pinChat,
+  }) {
+    return pinChat?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatGetChatsEvent value)? getChats,
+    TResult Function(ChatArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatBlockUserEvent value)? blockUser,
+    TResult Function(ChatDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatPinChatEvent value)? pinChat,
+    required TResult orElse(),
+  }) {
+    if (pinChat != null) {
+      return pinChat(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatPinChatEvent implements ChatEvent {
+  const factory ChatPinChatEvent({required final String id}) =
+      _$ChatPinChatEventImpl;
+
+  String get id;
+
+  /// Create a copy of ChatEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatPinChatEventImplCopyWith<_$ChatPinChatEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
