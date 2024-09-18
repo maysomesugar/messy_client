@@ -1,8 +1,8 @@
-class UserModel {
+class TokenModel {
   final String username;
   final String number;
 
-  UserModel({
+  TokenModel({
     required this.username,
     required this.number,
   });

@@ -11,16 +11,16 @@ class AuthLoginUsecase extends Usecase<TokenModel, AuthLoginParams> {
 
   @override
   Future<Either<Failure, TokenModel>> call(AuthLoginParams params) async {
-    return await _authRepository.authLogin(params.login, params.password);
+    return await _authRepository.authLogin(params.username, params.password);
   }
 }
 
 class AuthLoginParams {
-  final String login;
+  final String username;
   final String password;
 
   AuthLoginParams({
-    required this.login,
+    required this.username,
     required this.password,
   });
 }

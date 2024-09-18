@@ -26,7 +26,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
     final tokenResult = await _authLoginUsecase(
       AuthLoginParams(
-        login: event.login,
+        username: event.username,
         password: event.password,
       ),
     );

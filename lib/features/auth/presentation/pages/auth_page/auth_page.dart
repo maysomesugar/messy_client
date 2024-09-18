@@ -10,7 +10,7 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  final loginController = TextEditingController();
+  final usernameController = TextEditingController();
   final passwordController = TextEditingController();
 
   @override
@@ -25,7 +25,7 @@ class _AuthPageState extends State<AuthPage> {
             AuthInitState() => Column(
                 children: [
                   TextField(
-                    controller: loginController,
+                    controller: usernameController,
                   ),
                   TextField(
                     controller: passwordController,
@@ -34,7 +34,7 @@ class _AuthPageState extends State<AuthPage> {
                     onPressed: () {
                       authBloc.add(
                         AuthEvent.authLogin(
-                          login: loginController.text,
+                          username: usernameController.text,
                           password: passwordController.text,
                         ),
                       );
@@ -54,7 +54,7 @@ class _AuthPageState extends State<AuthPage> {
             AuthSuccessState() => Column(
                 children: [
                   TextField(
-                    controller: loginController,
+                    controller: usernameController,
                   ),
                   TextField(
                     controller: passwordController,
@@ -63,7 +63,7 @@ class _AuthPageState extends State<AuthPage> {
                     onPressed: () {
                       authBloc.add(
                         AuthEvent.authLogin(
-                          login: loginController.text,
+                          username: usernameController.text,
                           password: passwordController.text,
                         ),
                       );
@@ -80,7 +80,7 @@ class _AuthPageState extends State<AuthPage> {
             AuthErrorState(:final message) => Column(
                 children: [
                   TextField(
-                    controller: loginController,
+                    controller: usernameController,
                   ),
                   TextField(
                     controller: passwordController,
@@ -89,7 +89,7 @@ class _AuthPageState extends State<AuthPage> {
                     onPressed: () {
                       authBloc.add(
                         AuthEvent.authLogin(
-                          login: loginController.text,
+                          username: usernameController.text,
                           password: passwordController.text,
                         ),
                       );

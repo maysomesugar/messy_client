@@ -2,7 +2,7 @@ import 'package:messy_client/shared/domain/model/user_model.dart';
 
 class ChatModel {
   final String id;
-  final UserModel user;
+  final TokenModel user;
   final bool pinned;
 
   ChatModel({
