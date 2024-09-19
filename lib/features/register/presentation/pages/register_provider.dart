@@ -5,8 +5,8 @@ import 'package:messy_client/features/register/domain/usecase/register_usecase.d
 import 'package:messy_client/features/register/presentation/bloc/register_bloc.dart';
 import 'package:messy_client/features/register/presentation/pages/register_page/register_page.dart';
 
-abstract class RegisterPageProvider {
-  static Widget register() => BlocProvider(
+class RegisterProvider {
+  Widget register() => BlocProvider(
         create: (_) => RegisterBloc(
           sl<RegisterUsecase>(),
         ),

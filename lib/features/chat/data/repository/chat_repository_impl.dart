@@ -7,10 +7,10 @@ import 'package:messy_client/features/chat/data/mapper/chat_mapper.dart';
 import 'package:messy_client/features/chat/domain/model/chat_model.dart';
 import 'package:messy_client/features/chat/domain/repository/chat_repository.dart';
 
-class ChatRepositoryImpl extends ChatRepository {
+class ChatsRepositoryImpl extends ChatRepository {
   final ChatRemoteDataSource _remoteDataSource;
 
-  ChatRepositoryImpl(this._remoteDataSource);
+  ChatsRepositoryImpl(this._remoteDataSource);
 
   @override
   Future<Either<Failure, List<ChatModel>>> getChats(String token) async {

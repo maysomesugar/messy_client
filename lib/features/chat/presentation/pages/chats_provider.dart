@@ -10,8 +10,8 @@ import 'package:messy_client/features/chat/domain/usecase/pin_chat_usecase.dart'
 import 'package:messy_client/features/chat/presentation/bloc/chat_bloc/chat_bloc.dart';
 import 'package:messy_client/features/chat/presentation/pages/chats_page/chats_page.dart';
 
-abstract class ChatsPageProvider {
-  static Widget chats() => BlocProvider(
+class ChatsProvider {
+  Widget chats() => BlocProvider(
         create: (_) => ChatBloc(
           sl<GetChatsUsecase>(),
           sl<ArchiveChatUsecase>(),
