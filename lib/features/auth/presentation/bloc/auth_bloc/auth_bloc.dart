@@ -1,7 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:messy_client/features/auth/domain/usecase/auth_login_usecase.dart';
-import 'package:messy_client/shared/domain/usecase/auth_token_usecase.dart';
 
 part 'auth_event.dart';
 part 'auth_state.dart';
