@@ -5,22 +5,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messy_client/core/router/main_router.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/injection.dart';
-import 'package:messy_client/features/register/presentation/bloc/register_bloc.dart';
-
+import 'package:messy_client/features/sign_in/presentation/bloc/auth_bloc/sign_in_bloc.dart';
+import 'package:messy_client/shared/presentation/widgets/text_section.dart';
 import 'package:messy_client/shared/presentation/widgets/auth_button.dart';
 import 'package:messy_client/shared/presentation/widgets/phone_number_text_field.dart';
 import 'package:messy_client/shared/presentation/widgets/text_field_bear.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:messy_client/shared/presentation/widgets/text_section.dart';
 
-class RegisterPage extends StatefulWidget {
-  const RegisterPage({super.key});
+class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
 
   @override
-  State<RegisterPage> createState() => _RegisterPageState();
+  State<SignInPage> createState() => _SignInPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _SignInPageState extends State<SignInPage> {
   final phoneNumberController = TextEditingController();
   final passwordController = TextEditingController();
   final phoneNumberfocusNode = FocusNode();
@@ -29,7 +28,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   @override
   Widget build(BuildContext context) {
-    final registerBloc = context.watch<RegisterBloc>();
+    final signInBloc = context.watch<SignInBloc>();
 
     return GestureDetector(
       onTap: () {
@@ -38,16 +37,16 @@ class _RegisterPageState extends State<RegisterPage> {
       child: Scaffold(
         body: SafeArea(
           child: BlocListener(
-            bloc: registerBloc,
-            listener: (_, RegisterState state) {
+            bloc: signInBloc,
+            listener: (_, SignInState state) {
               switch (state) {
-                case RegisterInitState() || RegisterLoadingState():
+                case SignInInitState() || SignInLoadingState():
                   break;
 
-                case RegisterSuccessState():
+                case SignInSuccessState():
                   resultController.add(true);
                   break;
-                case RegisterErrorState():
+                case SignInErrorState():
                   resultController.add(false);
                   break;
               }
@@ -97,34 +96,33 @@ class _RegisterPageState extends State<RegisterPage> {
                             ),
                           ),
                           TextSection(
-                            firstPart: AppLocalizations.of(context)!
-                                .already_have_account,
-                            secondPart: AppLocalizations.of(context)!.sign_in,
+                            firstPart:
+                                AppLocalizations.of(context)!.dont_have_account,
+                            secondPart: AppLocalizations.of(context)!.register,
                             onTap: () =>
-                                sl<MainRouter>().navigate(Routes.signIn),
+                                sl<MainRouter>().navigate(Routes.register),
                           ),
                           const SizedBox(
                             height: 8,
                           ),
                           BlocBuilder(
-                            bloc: registerBloc,
-                            builder: (_, RegisterState state) =>
-                                switch (state) {
-                              RegisterInitState() ||
-                              RegisterSuccessState() ||
-                              RegisterErrorState() =>
+                            bloc: signInBloc,
+                            builder: (_, SignInState state) => switch (state) {
+                              SignInInitState() ||
+                              SignInSuccessState() ||
+                              SignInErrorState() =>
                                 AuthButton(
-                                  text: AppLocalizations.of(context)!.register,
+                                  text: AppLocalizations.of(context)!.sign_in,
                                   onPressed: () {
-                                    registerBloc.add(
-                                      RegisterEvent.register(
+                                    signInBloc.add(
+                                      SignInEvent.authLogin(
                                         username: phoneNumberController.text,
                                         password: passwordController.text,
                                       ),
                                     );
                                   },
                                 ),
-                              RegisterLoadingState() => AuthButton(
+                              SignInLoadingState() => AuthButton(
                                   text: AppLocalizations.of(context)!.loading,
                                 ),
                             },

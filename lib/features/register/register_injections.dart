@@ -4,7 +4,7 @@ import 'package:messy_client/features/register/data/repository/register_reposito
 import 'package:messy_client/features/register/domain/usecase/register_usecase.dart';
 import 'package:messy_client/features/register/presentation/pages/register_provider.dart';
 
-Future<void> registerInitInjections() async {
+Future<void> initRegisterInjections() async {
   sl.registerSingleton(RegisterRemoteDatasourceMockImpl());
   sl.registerSingleton(
       RegisterRepositoryImpl(sl<RegisterRemoteDatasourceMockImpl>()));

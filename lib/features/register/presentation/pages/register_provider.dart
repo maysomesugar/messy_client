@@ -6,6 +6,12 @@ import 'package:messy_client/features/register/presentation/bloc/register_bloc.d
 import 'package:messy_client/features/register/presentation/pages/register_page/register_page.dart';
 
 class RegisterProvider {
+  static final _internal = RegisterProvider._();
+
+  factory RegisterProvider() => _internal;
+
+  RegisterProvider._();
+
   Widget register() => BlocProvider(
         create: (_) => RegisterBloc(
           sl<RegisterUsecase>(),

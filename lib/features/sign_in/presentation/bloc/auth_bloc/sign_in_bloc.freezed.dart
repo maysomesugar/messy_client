@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'auth_bloc.dart';
+part of 'sign_in_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AuthEvent {
+mixin _$SignInEvent {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -36,47 +36,48 @@ mixin _$AuthEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthLoginEvent value) authLogin,
+    required TResult Function(SignInLoginEvent value) authLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthLoginEvent value)? authLogin,
+    TResult? Function(SignInLoginEvent value)? authLogin,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthLoginEvent value)? authLogin,
+    TResult Function(SignInLoginEvent value)? authLogin,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 
-  /// Create a copy of AuthEvent
+  /// Create a copy of SignInEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $AuthEventCopyWith<AuthEvent> get copyWith =>
+  $SignInEventCopyWith<SignInEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthEventCopyWith<$Res> {
-  factory $AuthEventCopyWith(AuthEvent value, $Res Function(AuthEvent) then) =
-      _$AuthEventCopyWithImpl<$Res, AuthEvent>;
+abstract class $SignInEventCopyWith<$Res> {
+  factory $SignInEventCopyWith(
+          SignInEvent value, $Res Function(SignInEvent) then) =
+      _$SignInEventCopyWithImpl<$Res, SignInEvent>;
   @useResult
   $Res call({String username, String password});
 }
 
 /// @nodoc
-class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
-    implements $AuthEventCopyWith<$Res> {
-  _$AuthEventCopyWithImpl(this._value, this._then);
+class _$SignInEventCopyWithImpl<$Res, $Val extends SignInEvent>
+    implements $SignInEventCopyWith<$Res> {
+  _$SignInEventCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AuthEvent
+  /// Create a copy of SignInEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -98,25 +99,25 @@ class _$AuthEventCopyWithImpl<$Res, $Val extends AuthEvent>
 }
 
 /// @nodoc
-abstract class _$$AuthLoginEventImplCopyWith<$Res>
-    implements $AuthEventCopyWith<$Res> {
-  factory _$$AuthLoginEventImplCopyWith(_$AuthLoginEventImpl value,
-          $Res Function(_$AuthLoginEventImpl) then) =
-      __$$AuthLoginEventImplCopyWithImpl<$Res>;
+abstract class _$$SignInLoginEventImplCopyWith<$Res>
+    implements $SignInEventCopyWith<$Res> {
+  factory _$$SignInLoginEventImplCopyWith(_$SignInLoginEventImpl value,
+          $Res Function(_$SignInLoginEventImpl) then) =
+      __$$SignInLoginEventImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String username, String password});
 }
 
 /// @nodoc
-class __$$AuthLoginEventImplCopyWithImpl<$Res>
-    extends _$AuthEventCopyWithImpl<$Res, _$AuthLoginEventImpl>
-    implements _$$AuthLoginEventImplCopyWith<$Res> {
-  __$$AuthLoginEventImplCopyWithImpl(
-      _$AuthLoginEventImpl _value, $Res Function(_$AuthLoginEventImpl) _then)
+class __$$SignInLoginEventImplCopyWithImpl<$Res>
+    extends _$SignInEventCopyWithImpl<$Res, _$SignInLoginEventImpl>
+    implements _$$SignInLoginEventImplCopyWith<$Res> {
+  __$$SignInLoginEventImplCopyWithImpl(_$SignInLoginEventImpl _value,
+      $Res Function(_$SignInLoginEventImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthEvent
+  /// Create a copy of SignInEvent
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -124,7 +125,7 @@ class __$$AuthLoginEventImplCopyWithImpl<$Res>
     Object? username = null,
     Object? password = null,
   }) {
-    return _then(_$AuthLoginEventImpl(
+    return _then(_$SignInLoginEventImpl(
       username: null == username
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -139,8 +140,9 @@ class __$$AuthLoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthLoginEventImpl implements AuthLoginEvent {
-  const _$AuthLoginEventImpl({required this.username, required this.password});
+class _$SignInLoginEventImpl implements SignInLoginEvent {
+  const _$SignInLoginEventImpl(
+      {required this.username, required this.password});
 
   @override
   final String username;
@@ -149,14 +151,14 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
 
   @override
   String toString() {
-    return 'AuthEvent.authLogin(username: $username, password: $password)';
+    return 'SignInEvent.authLogin(username: $username, password: $password)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthLoginEventImpl &&
+            other is _$SignInLoginEventImpl &&
             (identical(other.username, username) ||
                 other.username == username) &&
             (identical(other.password, password) ||
@@ -166,13 +168,13 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @override
   int get hashCode => Object.hash(runtimeType, username, password);
 
-  /// Create a copy of AuthEvent
+  /// Create a copy of SignInEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthLoginEventImplCopyWith<_$AuthLoginEventImpl> get copyWith =>
-      __$$AuthLoginEventImplCopyWithImpl<_$AuthLoginEventImpl>(
+  _$$SignInLoginEventImplCopyWith<_$SignInLoginEventImpl> get copyWith =>
+      __$$SignInLoginEventImplCopyWithImpl<_$SignInLoginEventImpl>(
           this, _$identity);
 
   @override
@@ -206,7 +208,7 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthLoginEvent value) authLogin,
+    required TResult Function(SignInLoginEvent value) authLogin,
   }) {
     return authLogin(this);
   }
@@ -214,7 +216,7 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthLoginEvent value)? authLogin,
+    TResult? Function(SignInLoginEvent value)? authLogin,
   }) {
     return authLogin?.call(this);
   }
@@ -222,7 +224,7 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthLoginEvent value)? authLogin,
+    TResult Function(SignInLoginEvent value)? authLogin,
     required TResult orElse(),
   }) {
     if (authLogin != null) {
@@ -232,26 +234,26 @@ class _$AuthLoginEventImpl implements AuthLoginEvent {
   }
 }
 
-abstract class AuthLoginEvent implements AuthEvent {
-  const factory AuthLoginEvent(
+abstract class SignInLoginEvent implements SignInEvent {
+  const factory SignInLoginEvent(
       {required final String username,
-      required final String password}) = _$AuthLoginEventImpl;
+      required final String password}) = _$SignInLoginEventImpl;
 
   @override
   String get username;
   @override
   String get password;
 
-  /// Create a copy of AuthEvent
+  /// Create a copy of SignInEvent
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthLoginEventImplCopyWith<_$AuthLoginEventImpl> get copyWith =>
+  _$$SignInLoginEventImplCopyWith<_$SignInLoginEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-mixin _$AuthState {
+mixin _$SignInState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() init,
@@ -279,84 +281,85 @@ mixin _$AuthState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthInitState value) init,
-    required TResult Function(AuthLoadingState value) loading,
-    required TResult Function(AuthSuccessState value) success,
-    required TResult Function(AuthErrorState value) error,
+    required TResult Function(SignInInitState value) init,
+    required TResult Function(SignInLoadingState value) loading,
+    required TResult Function(SignInSuccessState value) success,
+    required TResult Function(SignInErrorState value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthInitState value)? init,
-    TResult? Function(AuthLoadingState value)? loading,
-    TResult? Function(AuthSuccessState value)? success,
-    TResult? Function(AuthErrorState value)? error,
+    TResult? Function(SignInInitState value)? init,
+    TResult? Function(SignInLoadingState value)? loading,
+    TResult? Function(SignInSuccessState value)? success,
+    TResult? Function(SignInErrorState value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthInitState value)? init,
-    TResult Function(AuthLoadingState value)? loading,
-    TResult Function(AuthSuccessState value)? success,
-    TResult Function(AuthErrorState value)? error,
+    TResult Function(SignInInitState value)? init,
+    TResult Function(SignInLoadingState value)? loading,
+    TResult Function(SignInSuccessState value)? success,
+    TResult Function(SignInErrorState value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AuthStateCopyWith<$Res> {
-  factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
-      _$AuthStateCopyWithImpl<$Res, AuthState>;
+abstract class $SignInStateCopyWith<$Res> {
+  factory $SignInStateCopyWith(
+          SignInState value, $Res Function(SignInState) then) =
+      _$SignInStateCopyWithImpl<$Res, SignInState>;
 }
 
 /// @nodoc
-class _$AuthStateCopyWithImpl<$Res, $Val extends AuthState>
-    implements $AuthStateCopyWith<$Res> {
-  _$AuthStateCopyWithImpl(this._value, this._then);
+class _$SignInStateCopyWithImpl<$Res, $Val extends SignInState>
+    implements $SignInStateCopyWith<$Res> {
+  _$SignInStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
-abstract class _$$AuthInitStateImplCopyWith<$Res> {
-  factory _$$AuthInitStateImplCopyWith(
-          _$AuthInitStateImpl value, $Res Function(_$AuthInitStateImpl) then) =
-      __$$AuthInitStateImplCopyWithImpl<$Res>;
+abstract class _$$SignInInitStateImplCopyWith<$Res> {
+  factory _$$SignInInitStateImplCopyWith(_$SignInInitStateImpl value,
+          $Res Function(_$SignInInitStateImpl) then) =
+      __$$SignInInitStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthInitStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthInitStateImpl>
-    implements _$$AuthInitStateImplCopyWith<$Res> {
-  __$$AuthInitStateImplCopyWithImpl(
-      _$AuthInitStateImpl _value, $Res Function(_$AuthInitStateImpl) _then)
+class __$$SignInInitStateImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SignInInitStateImpl>
+    implements _$$SignInInitStateImplCopyWith<$Res> {
+  __$$SignInInitStateImplCopyWithImpl(
+      _$SignInInitStateImpl _value, $Res Function(_$SignInInitStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthInitStateImpl implements AuthInitState {
-  const _$AuthInitStateImpl();
+class _$SignInInitStateImpl implements SignInInitState {
+  const _$SignInInitStateImpl();
 
   @override
   String toString() {
-    return 'AuthState.init()';
+    return 'SignInState.init()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthInitStateImpl);
+        (other.runtimeType == runtimeType && other is _$SignInInitStateImpl);
   }
 
   @override
@@ -402,10 +405,10 @@ class _$AuthInitStateImpl implements AuthInitState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthInitState value) init,
-    required TResult Function(AuthLoadingState value) loading,
-    required TResult Function(AuthSuccessState value) success,
-    required TResult Function(AuthErrorState value) error,
+    required TResult Function(SignInInitState value) init,
+    required TResult Function(SignInLoadingState value) loading,
+    required TResult Function(SignInSuccessState value) success,
+    required TResult Function(SignInErrorState value) error,
   }) {
     return init(this);
   }
@@ -413,10 +416,10 @@ class _$AuthInitStateImpl implements AuthInitState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthInitState value)? init,
-    TResult? Function(AuthLoadingState value)? loading,
-    TResult? Function(AuthSuccessState value)? success,
-    TResult? Function(AuthErrorState value)? error,
+    TResult? Function(SignInInitState value)? init,
+    TResult? Function(SignInLoadingState value)? loading,
+    TResult? Function(SignInSuccessState value)? success,
+    TResult? Function(SignInErrorState value)? error,
   }) {
     return init?.call(this);
   }
@@ -424,10 +427,10 @@ class _$AuthInitStateImpl implements AuthInitState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthInitState value)? init,
-    TResult Function(AuthLoadingState value)? loading,
-    TResult Function(AuthSuccessState value)? success,
-    TResult Function(AuthErrorState value)? error,
+    TResult Function(SignInInitState value)? init,
+    TResult Function(SignInLoadingState value)? loading,
+    TResult Function(SignInSuccessState value)? success,
+    TResult Function(SignInErrorState value)? error,
     required TResult orElse(),
   }) {
     if (init != null) {
@@ -437,43 +440,43 @@ class _$AuthInitStateImpl implements AuthInitState {
   }
 }
 
-abstract class AuthInitState implements AuthState {
-  const factory AuthInitState() = _$AuthInitStateImpl;
+abstract class SignInInitState implements SignInState {
+  const factory SignInInitState() = _$SignInInitStateImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthLoadingStateImplCopyWith<$Res> {
-  factory _$$AuthLoadingStateImplCopyWith(_$AuthLoadingStateImpl value,
-          $Res Function(_$AuthLoadingStateImpl) then) =
-      __$$AuthLoadingStateImplCopyWithImpl<$Res>;
+abstract class _$$SignInLoadingStateImplCopyWith<$Res> {
+  factory _$$SignInLoadingStateImplCopyWith(_$SignInLoadingStateImpl value,
+          $Res Function(_$SignInLoadingStateImpl) then) =
+      __$$SignInLoadingStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthLoadingStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthLoadingStateImpl>
-    implements _$$AuthLoadingStateImplCopyWith<$Res> {
-  __$$AuthLoadingStateImplCopyWithImpl(_$AuthLoadingStateImpl _value,
-      $Res Function(_$AuthLoadingStateImpl) _then)
+class __$$SignInLoadingStateImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SignInLoadingStateImpl>
+    implements _$$SignInLoadingStateImplCopyWith<$Res> {
+  __$$SignInLoadingStateImplCopyWithImpl(_$SignInLoadingStateImpl _value,
+      $Res Function(_$SignInLoadingStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthLoadingStateImpl implements AuthLoadingState {
-  const _$AuthLoadingStateImpl();
+class _$SignInLoadingStateImpl implements SignInLoadingState {
+  const _$SignInLoadingStateImpl();
 
   @override
   String toString() {
-    return 'AuthState.loading()';
+    return 'SignInState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthLoadingStateImpl);
+        (other.runtimeType == runtimeType && other is _$SignInLoadingStateImpl);
   }
 
   @override
@@ -519,10 +522,10 @@ class _$AuthLoadingStateImpl implements AuthLoadingState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthInitState value) init,
-    required TResult Function(AuthLoadingState value) loading,
-    required TResult Function(AuthSuccessState value) success,
-    required TResult Function(AuthErrorState value) error,
+    required TResult Function(SignInInitState value) init,
+    required TResult Function(SignInLoadingState value) loading,
+    required TResult Function(SignInSuccessState value) success,
+    required TResult Function(SignInErrorState value) error,
   }) {
     return loading(this);
   }
@@ -530,10 +533,10 @@ class _$AuthLoadingStateImpl implements AuthLoadingState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthInitState value)? init,
-    TResult? Function(AuthLoadingState value)? loading,
-    TResult? Function(AuthSuccessState value)? success,
-    TResult? Function(AuthErrorState value)? error,
+    TResult? Function(SignInInitState value)? init,
+    TResult? Function(SignInLoadingState value)? loading,
+    TResult? Function(SignInSuccessState value)? success,
+    TResult? Function(SignInErrorState value)? error,
   }) {
     return loading?.call(this);
   }
@@ -541,10 +544,10 @@ class _$AuthLoadingStateImpl implements AuthLoadingState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthInitState value)? init,
-    TResult Function(AuthLoadingState value)? loading,
-    TResult Function(AuthSuccessState value)? success,
-    TResult Function(AuthErrorState value)? error,
+    TResult Function(SignInInitState value)? init,
+    TResult Function(SignInLoadingState value)? loading,
+    TResult Function(SignInSuccessState value)? success,
+    TResult Function(SignInErrorState value)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -554,43 +557,43 @@ class _$AuthLoadingStateImpl implements AuthLoadingState {
   }
 }
 
-abstract class AuthLoadingState implements AuthState {
-  const factory AuthLoadingState() = _$AuthLoadingStateImpl;
+abstract class SignInLoadingState implements SignInState {
+  const factory SignInLoadingState() = _$SignInLoadingStateImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthSuccessStateImplCopyWith<$Res> {
-  factory _$$AuthSuccessStateImplCopyWith(_$AuthSuccessStateImpl value,
-          $Res Function(_$AuthSuccessStateImpl) then) =
-      __$$AuthSuccessStateImplCopyWithImpl<$Res>;
+abstract class _$$SignInSuccessStateImplCopyWith<$Res> {
+  factory _$$SignInSuccessStateImplCopyWith(_$SignInSuccessStateImpl value,
+          $Res Function(_$SignInSuccessStateImpl) then) =
+      __$$SignInSuccessStateImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$AuthSuccessStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthSuccessStateImpl>
-    implements _$$AuthSuccessStateImplCopyWith<$Res> {
-  __$$AuthSuccessStateImplCopyWithImpl(_$AuthSuccessStateImpl _value,
-      $Res Function(_$AuthSuccessStateImpl) _then)
+class __$$SignInSuccessStateImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SignInSuccessStateImpl>
+    implements _$$SignInSuccessStateImplCopyWith<$Res> {
+  __$$SignInSuccessStateImplCopyWithImpl(_$SignInSuccessStateImpl _value,
+      $Res Function(_$SignInSuccessStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
 }
 
 /// @nodoc
 
-class _$AuthSuccessStateImpl implements AuthSuccessState {
-  const _$AuthSuccessStateImpl();
+class _$SignInSuccessStateImpl implements SignInSuccessState {
+  const _$SignInSuccessStateImpl();
 
   @override
   String toString() {
-    return 'AuthState.success()';
+    return 'SignInState.success()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$AuthSuccessStateImpl);
+        (other.runtimeType == runtimeType && other is _$SignInSuccessStateImpl);
   }
 
   @override
@@ -636,10 +639,10 @@ class _$AuthSuccessStateImpl implements AuthSuccessState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthInitState value) init,
-    required TResult Function(AuthLoadingState value) loading,
-    required TResult Function(AuthSuccessState value) success,
-    required TResult Function(AuthErrorState value) error,
+    required TResult Function(SignInInitState value) init,
+    required TResult Function(SignInLoadingState value) loading,
+    required TResult Function(SignInSuccessState value) success,
+    required TResult Function(SignInErrorState value) error,
   }) {
     return success(this);
   }
@@ -647,10 +650,10 @@ class _$AuthSuccessStateImpl implements AuthSuccessState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthInitState value)? init,
-    TResult? Function(AuthLoadingState value)? loading,
-    TResult? Function(AuthSuccessState value)? success,
-    TResult? Function(AuthErrorState value)? error,
+    TResult? Function(SignInInitState value)? init,
+    TResult? Function(SignInLoadingState value)? loading,
+    TResult? Function(SignInSuccessState value)? success,
+    TResult? Function(SignInErrorState value)? error,
   }) {
     return success?.call(this);
   }
@@ -658,10 +661,10 @@ class _$AuthSuccessStateImpl implements AuthSuccessState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthInitState value)? init,
-    TResult Function(AuthLoadingState value)? loading,
-    TResult Function(AuthSuccessState value)? success,
-    TResult Function(AuthErrorState value)? error,
+    TResult Function(SignInInitState value)? init,
+    TResult Function(SignInLoadingState value)? loading,
+    TResult Function(SignInSuccessState value)? success,
+    TResult Function(SignInErrorState value)? error,
     required TResult orElse(),
   }) {
     if (success != null) {
@@ -671,35 +674,35 @@ class _$AuthSuccessStateImpl implements AuthSuccessState {
   }
 }
 
-abstract class AuthSuccessState implements AuthState {
-  const factory AuthSuccessState() = _$AuthSuccessStateImpl;
+abstract class SignInSuccessState implements SignInState {
+  const factory SignInSuccessState() = _$SignInSuccessStateImpl;
 }
 
 /// @nodoc
-abstract class _$$AuthErrorStateImplCopyWith<$Res> {
-  factory _$$AuthErrorStateImplCopyWith(_$AuthErrorStateImpl value,
-          $Res Function(_$AuthErrorStateImpl) then) =
-      __$$AuthErrorStateImplCopyWithImpl<$Res>;
+abstract class _$$SignInErrorStateImplCopyWith<$Res> {
+  factory _$$SignInErrorStateImplCopyWith(_$SignInErrorStateImpl value,
+          $Res Function(_$SignInErrorStateImpl) then) =
+      __$$SignInErrorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$AuthErrorStateImplCopyWithImpl<$Res>
-    extends _$AuthStateCopyWithImpl<$Res, _$AuthErrorStateImpl>
-    implements _$$AuthErrorStateImplCopyWith<$Res> {
-  __$$AuthErrorStateImplCopyWithImpl(
-      _$AuthErrorStateImpl _value, $Res Function(_$AuthErrorStateImpl) _then)
+class __$$SignInErrorStateImplCopyWithImpl<$Res>
+    extends _$SignInStateCopyWithImpl<$Res, _$SignInErrorStateImpl>
+    implements _$$SignInErrorStateImplCopyWith<$Res> {
+  __$$SignInErrorStateImplCopyWithImpl(_$SignInErrorStateImpl _value,
+      $Res Function(_$SignInErrorStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$AuthErrorStateImpl(
+    return _then(_$SignInErrorStateImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -710,35 +713,35 @@ class __$$AuthErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AuthErrorStateImpl implements AuthErrorState {
-  const _$AuthErrorStateImpl({required this.message});
+class _$SignInErrorStateImpl implements SignInErrorState {
+  const _$SignInErrorStateImpl({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'AuthState.error(message: $message)';
+    return 'SignInState.error(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AuthErrorStateImpl &&
+            other is _$SignInErrorStateImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, message);
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$AuthErrorStateImplCopyWith<_$AuthErrorStateImpl> get copyWith =>
-      __$$AuthErrorStateImplCopyWithImpl<_$AuthErrorStateImpl>(
+  _$$SignInErrorStateImplCopyWith<_$SignInErrorStateImpl> get copyWith =>
+      __$$SignInErrorStateImplCopyWithImpl<_$SignInErrorStateImpl>(
           this, _$identity);
 
   @override
@@ -781,10 +784,10 @@ class _$AuthErrorStateImpl implements AuthErrorState {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(AuthInitState value) init,
-    required TResult Function(AuthLoadingState value) loading,
-    required TResult Function(AuthSuccessState value) success,
-    required TResult Function(AuthErrorState value) error,
+    required TResult Function(SignInInitState value) init,
+    required TResult Function(SignInLoadingState value) loading,
+    required TResult Function(SignInSuccessState value) success,
+    required TResult Function(SignInErrorState value) error,
   }) {
     return error(this);
   }
@@ -792,10 +795,10 @@ class _$AuthErrorStateImpl implements AuthErrorState {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(AuthInitState value)? init,
-    TResult? Function(AuthLoadingState value)? loading,
-    TResult? Function(AuthSuccessState value)? success,
-    TResult? Function(AuthErrorState value)? error,
+    TResult? Function(SignInInitState value)? init,
+    TResult? Function(SignInLoadingState value)? loading,
+    TResult? Function(SignInSuccessState value)? success,
+    TResult? Function(SignInErrorState value)? error,
   }) {
     return error?.call(this);
   }
@@ -803,10 +806,10 @@ class _$AuthErrorStateImpl implements AuthErrorState {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(AuthInitState value)? init,
-    TResult Function(AuthLoadingState value)? loading,
-    TResult Function(AuthSuccessState value)? success,
-    TResult Function(AuthErrorState value)? error,
+    TResult Function(SignInInitState value)? init,
+    TResult Function(SignInLoadingState value)? loading,
+    TResult Function(SignInSuccessState value)? success,
+    TResult Function(SignInErrorState value)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -816,15 +819,15 @@ class _$AuthErrorStateImpl implements AuthErrorState {
   }
 }
 
-abstract class AuthErrorState implements AuthState {
-  const factory AuthErrorState({required final String message}) =
-      _$AuthErrorStateImpl;
+abstract class SignInErrorState implements SignInState {
+  const factory SignInErrorState({required final String message}) =
+      _$SignInErrorStateImpl;
 
   String get message;
 
-  /// Create a copy of AuthState
+  /// Create a copy of SignInState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$AuthErrorStateImplCopyWith<_$AuthErrorStateImpl> get copyWith =>
+  _$$SignInErrorStateImplCopyWith<_$SignInErrorStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

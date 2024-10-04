@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:messy_client/core/utils/injection.dart';
-import 'package:messy_client/features/auth/presentation/pages/auth_provider.dart';
+import 'package:messy_client/features/sign_in/presentation/pages/sign_in_provider.dart';
 import 'package:messy_client/features/chat/presentation/pages/chats_provider.dart';
 import 'package:messy_client/features/register/presentation/pages/register_provider.dart';
-import 'package:messy_client/features/start/presentation/pages/start_page.dart';
+import 'package:messy_client/features/start/presentation/pages/start_provider.dart';
 
 class MainRouter {
   static const _start = '/start';
@@ -16,11 +16,11 @@ class MainRouter {
     routes: [
       GoRoute(
         path: _start,
-        builder: (context, state) => StartPage(), //TODO: rework to di
+        builder: (context, state) => sl<StartProvider>().start(),
       ),
       GoRoute(
         path: _auth,
-        builder: (context, state) => sl<AuthProvider>().auth(),
+        builder: (context, state) => sl<SignInProvider>().auth(),
       ),
       GoRoute(
         path: _register,
@@ -36,16 +36,16 @@ class MainRouter {
   void navigate(Routes route, [Object? extra]) {
     switch (route) {
       case Routes.start:
-        router.push(_start, extra: extra);
+        router.go(_start, extra: extra);
         break;
-      case Routes.auth:
-        router.push(_auth, extra: extra);
+      case Routes.signIn:
+        router.go(_auth, extra: extra);
         break;
       case Routes.register:
-        router.push(_register, extra: extra);
+        router.go(_register, extra: extra);
         break;
       case Routes.chats:
-        router.push(_chats, extra: extra);
+        router.go(_chats, extra: extra);
         break;
     }
   }
@@ -53,7 +53,7 @@ class MainRouter {
 
 enum Routes {
   start,
-  auth,
+  signIn,
   register,
   chats,
 }

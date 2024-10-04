@@ -1,0 +1,12 @@
+{
+    "@@locale": "uk",
+
+    "messy": "Messy",
+    "start_subtitle": "Спілкуйся яскравіше ніж будь-коли!",
+    "sign_in": "Вхід",
+    "register": "Реєстрація",
+    "phone_number": "Номер телефону",
+    "dont_have_account": "Немає аккаунту?",
+    "already_have_account": "Вже маєте аккаунт?",
+    "loading": "Завантаження"
+}

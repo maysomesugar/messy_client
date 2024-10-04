@@ -1,0 +1,36 @@
+{
+    "@@locale": "en",
+
+    "messy": "Messy",
+    "@messy": {
+        "description": "Messy name for start screen"
+    },
+    "start_subtitle": "Communicate more vividly than ever!",
+    "@start_subtitle": {
+        "description": "Start screen subtitle"
+    },
+    "sign_in": "Sign in",
+    "@sign_in": {
+        "description": "Sign in button text"
+    },
+    "register": "Register",
+    "@register": {
+        "description": "Register button text"
+    },
+    "phone_number": "Phone number",
+    "@phone_number": {
+        "description": "Phone number textfield text"
+    },
+    "dont_have_account": "Don`t have an account?",
+    "@dont_have_account": {
+        "description": "Don`t have an account text"
+    },
+    "already_have_account": "Already have an account?",
+    "@already_have_account ": {
+        "description": "Already have an account text"
+    },
+    "loading": "Loading",
+    "@loading": {
+        "description": "Loading state text"
+    }
+}

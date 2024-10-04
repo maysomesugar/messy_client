@@ -11,6 +11,12 @@ import 'package:messy_client/features/chat/presentation/bloc/chat_bloc/chat_bloc
 import 'package:messy_client/features/chat/presentation/pages/chats_page/chats_page.dart';
 
 class ChatsProvider {
+  static final _internal = ChatsProvider._();
+
+  factory ChatsProvider() => _internal;
+
+  ChatsProvider._();
+
   Widget chats() => BlocProvider(
         create: (_) => ChatBloc(
           sl<GetChatsUsecase>(),

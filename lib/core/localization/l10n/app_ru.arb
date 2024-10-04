@@ -1,0 +1,12 @@
+{
+    "@@locale": "ru",
+
+    "messy": "Messy",
+    "start_subtitle": "Общайся ярче чем когда-либо!",
+    "sign_in": "Вход",
+    "register": "Регистрация",
+    "phone_number": "Номер телефона",
+    "dont_have_account": "Нет аккаунта?",
+    "already_have_account": "Уже имеете аккаунт?",
+    "loading": "Загрузка"
+}

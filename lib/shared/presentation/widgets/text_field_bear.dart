@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:messy_client/core/utils/constants/rives.dart';
 import 'package:rive/rive.dart';
 
 class TextFieldBear extends StatefulWidget {
   final List<TextFieldBearData> textFieldsData;
+  final Stream<bool>? resultStream;
   const TextFieldBear({
     super.key,
+    this.resultStream,
     required this.textFieldsData,
   });
 
@@ -13,12 +16,17 @@ class TextFieldBear extends StatefulWidget {
 }
 
 class _TextFieldBearState extends State<TextFieldBear> {
+  static const stateMachineName = 'State Machine 1';
+  static const checkToggleName = 'Check';
+  static const lookNumberName = 'Look';
+  static const successTriggerName = 'success';
+  static const failTriggerName = 'fail';
+
   late final StateMachineController controller;
   SMIBool? check;
   SMINumber? look;
   SMITrigger? success;
   SMITrigger? fail;
-  SMIBool? hansUp;
 
   double xCaret = 0.0;
   double yCaret = 0.0;
@@ -44,14 +52,16 @@ class _TextFieldBearState extends State<TextFieldBear> {
           }
         }
       });
-
-      data.isHiden?.listen((isHiden) {
-        if (hansUp?.value != isHiden) {
-          hansUp?.value = isHiden;
-          setState(() {});
-        }
-      });
     }
+
+    widget.resultStream?.listen((result) {
+      if (result) {
+        success?.fire();
+      } else {
+        fail?.fire();
+      }
+      setState(() {});
+    });
   }
 
   @override
@@ -70,6 +80,8 @@ class _TextFieldBearState extends State<TextFieldBear> {
 
   void _updateCaretOffset(
       TextEditingController controller, double globalWidth) {
+    const rectInit = 0.0;
+
     TextPainter painter = TextPainter(
       textDirection: TextDirection.ltr,
       text: TextSpan(
@@ -80,12 +92,8 @@ class _TextFieldBearState extends State<TextFieldBear> {
     painter.layout();
 
     TextPosition cursorTextPosition = controller.selection.base;
-    Rect caretPrototype = const Rect.fromLTWH(
-      0.0,
-      0.0,
-      0.0,
-      0.0,
-    );
+    Rect caretPrototype =
+        const Rect.fromLTWH(rectInit, rectInit, rectInit, rectInit);
     Offset caretOffset =
         painter.getOffsetForCaret(cursorTextPosition, caretPrototype);
 
@@ -95,28 +103,23 @@ class _TextFieldBearState extends State<TextFieldBear> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 300,
-      width: 300,
-      child: RiveAnimation.asset(
-        'assets/rives/bear.riv',
-        stateMachines: ['State Machine 1'],
-        fit: BoxFit.cover,
-        onInit: (artboard) {
-          controller =
-              StateMachineController.fromArtboard(artboard, 'State Machine 1')!;
+    return RiveAnimation.asset(
+      Rives.bear,
+      stateMachines: const [stateMachineName],
+      fit: BoxFit.contain,
+      onInit: (artboard) {
+        controller =
+            StateMachineController.fromArtboard(artboard, stateMachineName)!;
 
-          check = controller.findSMI('Check');
-          look = controller.findSMI('Look');
-          success = controller.findSMI('success');
-          fail = controller.findSMI('fail');
-          hansUp = controller.findSMI('hands_up');
+        check = controller.findSMI(checkToggleName);
+        look = controller.findSMI(lookNumberName);
+        success = controller.findSMI(successTriggerName);
+        fail = controller.findSMI(failTriggerName);
 
-          artboard.addController(controller);
+        artboard.addController(controller);
 
-          setState(() {});
-        },
-      ),
+        setState(() {});
+      },
     );
   }
 }
@@ -125,11 +128,8 @@ class TextFieldBearData {
   final FocusNode focusNode;
   final TextEditingController controller;
 
-  final Stream<bool>? isHiden;
-
   TextFieldBearData({
     required this.focusNode,
     required this.controller,
-    this.isHiden,
   });
 }

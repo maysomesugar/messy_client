@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignInRegisterButton extends StatefulWidget {
-  const SignInRegisterButton({super.key});
+  final void Function()? onSignIn;
+  final void Function()? onRegister;
+  const SignInRegisterButton({
+    super.key,
+    this.onSignIn,
+    this.onRegister,
+  });
 
   @override
   State<SignInRegisterButton> createState() => _SignInRegisterButtonState();
@@ -16,9 +23,7 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
   late final AnimationController controller;
 
   late final Animation<Alignment> alignment;
-
   late final Animation<Color?> signInColor;
-
   late final Animation<Color?> registerColor;
 
   @override
@@ -91,11 +96,16 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => controller.reverse(),
+                      onTap: () {
+                        controller.reverse();
+                        if (widget.onSignIn != null) {
+                          widget.onSignIn!();
+                        }
+                      },
                       child: SizedBox.expand(
                         child: Center(
                           child: Text(
-                            'Sign In',
+                            AppLocalizations.of(context)!.sign_in,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: signInColor.value,
@@ -109,11 +119,16 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => controller.forward(),
+                      onTap: () {
+                        controller.forward();
+                        if (widget.onRegister != null) {
+                          widget.onRegister!();
+                        }
+                      },
                       child: SizedBox.expand(
                         child: Center(
                           child: Text(
-                            'Register',
+                            AppLocalizations.of(context)!.register,
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               color: registerColor.value,
@@ -132,5 +147,11 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
   }
 }

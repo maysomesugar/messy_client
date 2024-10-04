@@ -4,16 +4,34 @@ import 'package:messy_client/core/utils/constants/rives.dart';
 import 'package:rive/rive.dart';
 
 class SphereAnimation extends StatefulWidget {
-  const SphereAnimation({super.key});
+  final Stream? bingStream;
+  const SphereAnimation({
+    super.key,
+    this.bingStream,
+  });
 
   @override
   State<SphereAnimation> createState() => _SphereAnimationState();
 }
 
 class _SphereAnimationState extends State<SphereAnimation> {
+  static const stateMachineName = 'State Machine 1';
+  static const openTriggerName = 'open_trig';
+  static const bingTriggerName = 'bing_trig';
+
   late StateMachineController stateMachineController;
   SMITrigger? openTrigger;
   SMITrigger? bingTrigger;
+
+  @override
+  void initState() {
+    super.initState();
+
+    widget.bingStream?.listen((_) {
+      bingTrigger?.fire();
+      setState(() {});
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +41,13 @@ class _SphereAnimationState extends State<SphereAnimation> {
       alignment: Alignment.topCenter,
       child: RiveAnimation.asset(
         Rives.startSphere,
-        stateMachines: ['State Machine 1'],
-        // useArtboardSize: true,
+        stateMachines: const [stateMachineName],
         fit: BoxFit.contain,
         onInit: (artboard) {
           stateMachineController =
-              StateMachineController.fromArtboard(artboard, 'State Machine 1')!;
-          openTrigger = stateMachineController.findSMI('open_trig');
-          bingTrigger = stateMachineController.findSMI('bing_trig');
+              StateMachineController.fromArtboard(artboard, stateMachineName)!;
+          openTrigger = stateMachineController.findSMI(openTriggerName);
+          bingTrigger = stateMachineController.findSMI(bingTriggerName);
 
           artboard.addController(stateMachineController);
 
@@ -43,5 +60,11 @@ class _SphereAnimationState extends State<SphereAnimation> {
         },
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    stateMachineController.dispose();
+    super.dispose();
   }
 }
