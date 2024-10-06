@@ -32,5 +32,23 @@
     "loading": "Loading",
     "@loading": {
         "description": "Loading state text"
+    },
+    "welcome": "Welcome,",
+    "@welcome": {
+        "description": "Welcome text"
+    },
+    "welcome_back": "Welcome back,",
+    "@welcome_back": {
+        "description": "Welcome back text"
+    },
+    "send_number": "We send code to {number}",
+    "@send_number": {
+    "description": "Send number description",
+    "placeholders": {
+        "number": {
+            "type": "String",
+            "example": "+380 000 00 00"
+            }
+        }
     }
 }

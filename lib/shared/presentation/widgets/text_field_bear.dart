@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:messy_client/core/utils/constants/result_state.dart';
 import 'package:messy_client/core/utils/constants/rives.dart';
 import 'package:rive/rive.dart';
 
 class TextFieldBear extends StatefulWidget {
   final List<TextFieldBearData> textFieldsData;
-  final Stream<bool>? resultStream;
+  final Stream<ResultState>? resultStream;
   const TextFieldBear({
     super.key,
     this.resultStream,
@@ -55,11 +56,15 @@ class _TextFieldBearState extends State<TextFieldBear> {
     }
 
     widget.resultStream?.listen((result) {
-      if (result) {
-        success?.fire();
-      } else {
-        fail?.fire();
+      switch (result) {
+        case ResultState.success:
+          success?.fire();
+          break;
+        case ResultState.fail:
+          fail?.fire();
+          break;
       }
+
       setState(() {});
     });
   }

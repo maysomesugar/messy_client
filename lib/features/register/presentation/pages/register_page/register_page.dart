@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messy_client/core/router/main_router.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
+import 'package:messy_client/core/utils/constants/result_state.dart';
 import 'package:messy_client/core/utils/injection.dart';
 import 'package:messy_client/features/register/presentation/bloc/register_bloc.dart';
 
@@ -25,7 +26,7 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final phoneNumberfocusNode = FocusNode();
 
-  final resultController = StreamController<bool>();
+  final resultController = StreamController<ResultState>();
 
   @override
   Widget build(BuildContext context) {
@@ -45,10 +46,10 @@ class _RegisterPageState extends State<RegisterPage> {
                   break;
 
                 case RegisterSuccessState():
-                  resultController.add(true);
+                  resultController.add(ResultState.success);
                   break;
                 case RegisterErrorState():
-                  resultController.add(false);
+                  resultController.add(ResultState.fail);
                   break;
               }
             },

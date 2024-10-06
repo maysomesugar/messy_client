@@ -1,0 +1,4 @@
+enum ResultState {
+  success,
+  fail,
+}

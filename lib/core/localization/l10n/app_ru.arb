@@ -8,5 +8,8 @@
     "phone_number": "Номер телефона",
     "dont_have_account": "Нет аккаунта?",
     "already_have_account": "Уже имеете аккаунт?",
-    "loading": "Загрузка"
+    "loading": "Загрузка",
+    "welcome": "Приветствую,",
+    "welcome_back": "С возвращением,",
+    "send_number": "Мы отправили подтверждение по номеру {number}"
 }

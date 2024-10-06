@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messy_client/core/router/main_router.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
+import 'package:messy_client/core/utils/constants/result_state.dart';
 import 'package:messy_client/core/utils/injection.dart';
 import 'package:messy_client/features/sign_in/presentation/bloc/auth_bloc/sign_in_bloc.dart';
 import 'package:messy_client/shared/presentation/widgets/text_section.dart';
@@ -24,7 +25,7 @@ class _SignInPageState extends State<SignInPage> {
   final passwordController = TextEditingController();
   final phoneNumberfocusNode = FocusNode();
 
-  final resultController = StreamController<bool>();
+  final resultController = StreamController<ResultState>();
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +45,10 @@ class _SignInPageState extends State<SignInPage> {
                   break;
 
                 case SignInSuccessState():
-                  resultController.add(true);
+                  resultController.add(ResultState.success);
                   break;
                 case SignInErrorState():
-                  resultController.add(false);
+                  resultController.add(ResultState.fail);
                   break;
               }
             },

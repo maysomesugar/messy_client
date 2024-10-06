@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class TextSection extends StatelessWidget {
   final String firstPart;
