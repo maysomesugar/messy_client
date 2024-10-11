@@ -51,14 +51,13 @@ class _StartPageState extends State<StartPage> {
                   height: 70,
                 ),
                 SignInRegisterButton(
+                  bingController: bingController,
                   onSignIn: () {
-                    bingController.add(null);
                     sl<MainRouter>().navigate(
                       Routes.signIn,
                     );
                   },
                   onRegister: () {
-                    bingController.add(null);
                     sl<MainRouter>().navigate(
                       Routes.register,
                     );

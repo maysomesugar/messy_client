@@ -3,11 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/result_state.dart';
-import 'package:messy_client/core/utils/constants/text_colors.dart';
 import 'package:messy_client/features/phone_verification/presentation/widgets/code_field.dart';
 import 'package:messy_client/features/phone_verification/presentation/widgets/text_section.dart';
-import 'package:messy_client/features/phone_verification/presentation/widgets/verification_complete.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:messy_client/features/phone_verification/presentation/widgets/verification_result_animation.dart';
 
 class PhoneSecondaryVerificationPage extends StatefulWidget {
   const PhoneSecondaryVerificationPage({super.key});
@@ -33,8 +31,8 @@ class _PhoneSecondaryVerificationPageState
               stateStream: stateStreamController.stream,
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
+          const Padding(
+            padding: EdgeInsets.symmetric(
               horizontal: 24,
             ),
             child: TextSection(

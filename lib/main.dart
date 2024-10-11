@@ -50,6 +50,11 @@ class MyAppState extends State<MyApp> {
           displayColor: TextColors.white,
         ),
         fontFamily: GoogleFonts.ibmPlexMono().fontFamily,
+        // pageTransitionsTheme: PageTransitionsTheme(
+        //   builders: {
+        //     TargetPlatform.android: OpenU(),
+        //   },
+        // ),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

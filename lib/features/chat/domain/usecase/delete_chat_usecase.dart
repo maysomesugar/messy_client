@@ -4,7 +4,7 @@ import 'package:messy_client/core/utils/usecases/usecase.dart';
 import 'package:messy_client/features/chat/domain/repository/chat_repository.dart';
 
 class DeleteChatUsecase extends Usecase<bool, DeleteChatParams> {
-  final ChatRepository _chatRepository;
+  final ChatsRepository _chatRepository;
 
   DeleteChatUsecase(this._chatRepository);
 

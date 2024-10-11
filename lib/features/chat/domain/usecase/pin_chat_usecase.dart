@@ -4,7 +4,7 @@ import 'package:messy_client/core/utils/usecases/usecase.dart';
 import 'package:messy_client/features/chat/domain/repository/chat_repository.dart';
 
 class PinChatUsecase extends Usecase<bool, PinChatParams> {
-  final ChatRepository _chatRepository;
+  final ChatsRepository _chatRepository;
 
   PinChatUsecase(this._chatRepository);
 

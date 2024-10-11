@@ -1,13 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SignInRegisterButton extends StatefulWidget {
+  final StreamController? bingController;
   final void Function()? onSignIn;
   final void Function()? onRegister;
   const SignInRegisterButton({
     super.key,
+    this.bingController,
     this.onSignIn,
     this.onRegister,
   });
@@ -97,10 +101,12 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        controller.reverse();
-                        if (widget.onSignIn != null) {
-                          widget.onSignIn!();
-                        }
+                        widget.bingController?.add(null);
+                        controller.reverse().whenCompleteOrCancel(() {
+                          if (widget.onSignIn != null) {
+                            widget.onSignIn!();
+                          }
+                        });
                       },
                       child: SizedBox.expand(
                         child: Center(
@@ -120,10 +126,12 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                   Expanded(
                     child: GestureDetector(
                       onTap: () {
-                        controller.forward();
-                        if (widget.onRegister != null) {
-                          widget.onRegister!();
-                        }
+                        widget.bingController?.add(null);
+                        controller.forward().whenCompleteOrCancel(() {
+                          if (widget.onRegister != null) {
+                            widget.onRegister!();
+                          }
+                        });
                       },
                       child: SizedBox.expand(
                         child: Center(

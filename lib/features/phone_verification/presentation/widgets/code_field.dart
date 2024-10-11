@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:messy_client/features/phone_verification/presentation/widgets/code_element.dart';
+import 'package:messy_client/core/utils/constants/element_colors.dart';
+import 'package:sms_autofill/sms_autofill.dart';
 
 class CodeField extends StatefulWidget {
   final void Function()? onComplete;
@@ -13,99 +14,54 @@ class CodeField extends StatefulWidget {
 }
 
 class _CodeFieldState extends State<CodeField> {
-  final controller1 = TextEditingController();
-  final controller2 = TextEditingController();
-  final controller3 = TextEditingController();
-  final controller4 = TextEditingController();
+  var code = ''; //TODO: switch to real code
 
-  final focusNode1 = FocusNode();
-  final focusNode2 = FocusNode();
-  final focusNode3 = FocusNode();
-  final focusNode4 = FocusNode();
-
-  final isComplete = ValueNotifier(0);
+  final controller = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
+  void didChangeDependencies() {
+    super.didChangeDependencies();
 
-    isComplete.addListener(() {
-      if (isComplete.value == 4 && widget.onComplete != null) {
+    controller.addListener(() {
+      if (controller.text.length == 4 && widget.onComplete != null) {
         widget.onComplete!();
+
+        FocusScope.of(context).unfocus();
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        CodeElement(
-          controller: controller1,
-          focusNode: focusNode1,
-          textInputAction: TextInputAction.next,
-          onChanged: (value) {
-            if (value.isNotEmpty) {
-              FocusScope.of(context).requestFocus(focusNode2);
-              isComplete.value++;
-            } else {
-              isComplete.value--;
-            }
-          },
+    return SizedBox(
+      height: 95,
+      child: PinFieldAutoFill(
+        controller: controller,
+        decoration: BoxLooseDecoration(
+          textStyle: const TextStyle(
+            fontSize: 40,
+            fontWeight: FontWeight.bold,
+          ),
+          radius: const Radius.circular(12),
+          gapSpace: 24,
+          strokeColorBuilder: const FixedColorBuilder(
+            Colors.transparent,
+          ),
+          bgColorBuilder: const FixedColorBuilder(
+            ElementColors.backgroundBlue,
+          ),
         ),
-        CodeElement(
-          controller: controller2,
-          focusNode: focusNode2,
-          textInputAction: TextInputAction.next,
-          onChanged: (value) {
-            if (value.isNotEmpty) {
-              FocusScope.of(context).requestFocus(focusNode3);
-              isComplete.value++;
-            } else {
-              FocusScope.of(context).previousFocus();
-              isComplete.value--;
-            }
-          },
-        ),
-        CodeElement(
-          controller: controller3,
-          focusNode: focusNode3,
-          textInputAction: TextInputAction.next,
-          onChanged: (value) {
-            if (value.isNotEmpty) {
-              FocusScope.of(context).requestFocus(focusNode4);
-              isComplete.value++;
-            } else {
-              FocusScope.of(context).previousFocus();
-              isComplete.value--;
-            }
-          },
-        ),
-        CodeElement(
-          controller: controller4,
-          focusNode: focusNode4,
-          textInputAction: TextInputAction.done,
-          onChanged: (value) {
-            if (value.isEmpty) {
-              FocusScope.of(context).previousFocus();
-              isComplete.value--;
-            } else {
-              FocusScope.of(context).unfocus();
-              isComplete.value++;
-            }
-          },
-        ),
-      ],
+        currentCode: code,
+        onCodeSubmitted: (code) {},
+        onCodeChanged: (code) {},
+        codeLength: 4,
+      ),
     );
   }
 
   @override
   void dispose() {
-    controller1.dispose();
-    controller2.dispose();
-    controller3.dispose();
-    controller4.dispose();
+    controller.dispose();
 
     super.dispose();
   }

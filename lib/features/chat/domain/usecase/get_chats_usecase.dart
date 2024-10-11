@@ -5,7 +5,7 @@ import 'package:messy_client/features/chat/domain/model/chat_model.dart';
 import 'package:messy_client/features/chat/domain/repository/chat_repository.dart';
 
 class GetChatsUsecase extends Usecase<List<ChatModel>, GetChatsParams> {
-  final ChatRepository _chatRepository;
+  final ChatsRepository _chatRepository;
 
   GetChatsUsecase(this._chatRepository);
 

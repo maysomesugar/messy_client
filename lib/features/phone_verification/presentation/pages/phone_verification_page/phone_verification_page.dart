@@ -5,7 +5,7 @@ import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/result_state.dart';
 import 'package:messy_client/features/phone_verification/presentation/widgets/code_field.dart';
 import 'package:messy_client/features/phone_verification/presentation/widgets/text_section.dart';
-import 'package:messy_client/features/phone_verification/presentation/widgets/verification_complete.dart';
+import 'package:messy_client/features/phone_verification/presentation/widgets/verification_result_animation.dart';
 
 class PhoneVerificationPage extends StatefulWidget {
   const PhoneVerificationPage({super.key});

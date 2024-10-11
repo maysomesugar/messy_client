@@ -1,9 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:messy_client/core/utils/injection.dart';
 import 'package:messy_client/features/phone_verification/presentation/pages/phone_verificaton_privider.dart';
-import 'package:messy_client/features/sign_in/presentation/pages/sign_in_provider.dart';
 import 'package:messy_client/features/chat/presentation/pages/chats_provider.dart';
-import 'package:messy_client/features/register/presentation/pages/register_provider.dart';
+import 'package:messy_client/features/auth/presentation/pages/auth_provider.dart';
 import 'package:messy_client/features/start/presentation/pages/start_provider.dart';
 
 class MainRouter {
@@ -15,7 +14,7 @@ class MainRouter {
   static const _phoneSecondaryVerification = '/phoneSecondaryVerification';
 
   final router = GoRouter(
-    initialLocation: _phoneVerification,
+    initialLocation: _start,
     routes: [
       GoRoute(
         path: _start,
@@ -23,11 +22,11 @@ class MainRouter {
       ),
       GoRoute(
         path: _auth,
-        builder: (context, state) => sl<SignInProvider>().auth(),
+        builder: (context, state) => sl<AuthProvider>().auth(),
       ),
       GoRoute(
         path: _register,
-        builder: (context, state) => sl<RegisterProvider>().register(),
+        builder: (context, state) => sl<AuthProvider>().register(),
       ),
       GoRoute(
         path: _chats,

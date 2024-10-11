@@ -2,8 +2,8 @@ import 'package:messy_client/features/chat/data/datasource/remote/chat_remote_da
 import 'package:messy_client/features/chat/data/dto/chat_dto/chat_dto.dart';
 import 'package:messy_client/shared/data/dto/user_dto/user_dto.dart';
 
-class ChatsRemoteDataSourceMockImpl extends ChatRemoteDataSource {
-  ChatsRemoteDataSourceMockImpl();
+class ChatsRemoteDatasourceMockImpl extends ChatsRemoteDatasource {
+  ChatsRemoteDatasourceMockImpl();
 
   @override
   Future<List<ChatDto>> getChats() async {

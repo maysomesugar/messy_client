@@ -7,15 +7,15 @@ import 'package:messy_client/features/chat/data/mapper/chat_mapper.dart';
 import 'package:messy_client/features/chat/domain/model/chat_model.dart';
 import 'package:messy_client/features/chat/domain/repository/chat_repository.dart';
 
-class ChatsRepositoryImpl extends ChatRepository {
-  final ChatRemoteDataSource _remoteDataSource;
+class ChatsRepositoryImpl extends ChatsRepository {
+  final ChatsRemoteDatasource _remoteDatasource;
 
-  ChatsRepositoryImpl(this._remoteDataSource);
+  ChatsRepositoryImpl(this._remoteDatasource);
 
   @override
   Future<Either<Failure, List<ChatModel>>> getChats(String token) async {
     try {
-      final chats = await _remoteDataSource.getChats();
+      final chats = await _remoteDatasource.getChats();
 
       return Right(
         chats.map((chat) => ChatMapper.fromDto(chat)).toList(),
@@ -32,7 +32,7 @@ class ChatsRepositoryImpl extends ChatRepository {
   @override
   Future<Either<Failure, bool>> archiveChat(String id) async {
     try {
-      final archiveResult = await _remoteDataSource.archiveChat(id);
+      final archiveResult = await _remoteDatasource.archiveChat(id);
 
       return Right(archiveResult);
     } catch (e) {
@@ -47,7 +47,7 @@ class ChatsRepositoryImpl extends ChatRepository {
   @override
   Future<Either<Failure, bool>> blockUser(String id) async {
     try {
-      final blockResult = await _remoteDataSource.blockUser(id);
+      final blockResult = await _remoteDatasource.blockUser(id);
 
       return Right(blockResult);
     } catch (e) {
@@ -62,7 +62,7 @@ class ChatsRepositoryImpl extends ChatRepository {
   @override
   Future<Either<Failure, bool>> deleteChat(String id, bool forBoth) async {
     try {
-      final deleteResult = await _remoteDataSource.deleteChat(id, forBoth);
+      final deleteResult = await _remoteDatasource.deleteChat(id, forBoth);
 
       return Right(deleteResult);
     } catch (e) {
@@ -93,7 +93,7 @@ class ChatsRepositoryImpl extends ChatRepository {
   @override
   Future<Either<Failure, bool>> pinChat(String id) async {
     try {
-      final pinResult = await _remoteDataSource.pinChat(id);
+      final pinResult = await _remoteDatasource.pinChat(id);
 
       return Right(pinResult);
     } catch (e) {
