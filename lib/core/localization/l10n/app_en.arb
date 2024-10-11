@@ -1,7 +1,7 @@
 {
     "@@locale": "en",
 
-    "messy": "Messy",
+    "messy": "messy",
     "@messy": {
         "description": "Messy name for start screen"
     },
