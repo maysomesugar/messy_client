@@ -8,7 +8,7 @@ part 'phone_verification_bloc.freezed.dart';
 
 class PhoneVerificationUsecase
     extends Bloc<PhoneVerificationEvent, PhoneVerificationState> {
-  PhoneVerificationUsercase _phoneVerificationUsecase;
+  final PhoneVerificationUsercase _phoneVerificationUsecase;
   PhoneVerificationUsecase(
     this._phoneVerificationUsecase,
   ) : super(const PhoneVerificationState.init()) {
@@ -31,7 +31,7 @@ class PhoneVerificationUsecase
           ),
         );
       },
-      (token) {
+      (token) {   
         emit(
           const PhoneVerificationState.success(),
         );

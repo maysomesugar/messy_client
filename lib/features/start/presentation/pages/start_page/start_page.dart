@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/router/main_router.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
+import 'package:messy_client/core/utils/extensions/context.dart';
 import 'package:messy_client/core/utils/injection.dart';
 import 'package:messy_client/features/start/presentation/widgets/sign_in_register_button.dart';
 import 'package:messy_client/features/start/presentation/widgets/sphere_animation.dart';
@@ -31,7 +32,7 @@ class _StartPageState extends State<StartPage> {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Text(
-                  AppLocalizations.of(context)!.messy,
+                  context.loc!.messy,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 96,
@@ -39,7 +40,7 @@ class _StartPageState extends State<StartPage> {
                   ),
                 ),
                 Text(
-                  AppLocalizations.of(context)!.start_subtitle,
+                  context.loc!.start_subtitle,
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 16,

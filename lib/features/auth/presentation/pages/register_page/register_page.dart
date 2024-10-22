@@ -5,14 +5,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:messy_client/core/router/main_router.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/result_state.dart';
+import 'package:messy_client/core/utils/extensions/context.dart';
 import 'package:messy_client/core/utils/injection.dart';
 import 'package:messy_client/features/auth/presentation/bloc/register_bloc/register_bloc.dart';
 
-import 'package:messy_client/features/auth/presentation/pages/widgets/auth_button.dart';
-import 'package:messy_client/features/auth/presentation/pages/widgets/phone_number_text_field.dart';
-import 'package:messy_client/features/auth/presentation/pages/widgets/text_field_bear.dart';
+import 'package:messy_client/features/auth/presentation/widgets/auth_button.dart';
+import 'package:messy_client/features/auth/presentation/widgets/phone_number_text_field.dart';
+import 'package:messy_client/features/auth/presentation/widgets/text_field_bear.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:messy_client/features/auth/presentation/pages/widgets/text_section.dart';
+import 'package:messy_client/features/auth/presentation/widgets/text_section.dart';
+import 'package:messy_client/shared/presentation/widgets/bottom_rounded_container.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -71,64 +73,48 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
                 Align(
                   alignment: Alignment.bottomCenter,
-                  child: Container(
+                  child: BottomRoundedContainer(
                     height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: const BoxDecoration(
-                      color: ElementColors.buttonGrey,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 48,
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Expanded(
-                            child: PhoneNumberTextField(
-                              controller: phoneNumberController,
-                              focusNode: phoneNumberfocusNode,
-                            ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: PhoneNumberTextField(
+                            controller: phoneNumberController,
+                            focusNode: phoneNumberfocusNode,
                           ),
-                          TextSection(
-                            firstPart: AppLocalizations.of(context)!
-                                .already_have_account,
-                            secondPart: AppLocalizations.of(context)!.sign_in,
-                            onTap: () =>
-                                sl<MainRouter>().navigate(Routes.signIn),
-                          ),
-                          const SizedBox(
-                            height: 8,
-                          ),
-                          BlocBuilder(
-                            bloc: registerBloc,
-                            builder: (_, RegisterState state) =>
-                                switch (state) {
-                              RegisterInitState() ||
-                              RegisterSuccessState() ||
-                              RegisterErrorState() =>
-                                AuthButton(
-                                  text: AppLocalizations.of(context)!.register,
-                                  onPressed: () {
-                                    registerBloc.add(
-                                      RegisterEvent.register(
-                                        phoneNumber: phoneNumberController.text,
-                                      ),
-                                    );
-                                  },
-                                ),
-                              RegisterLoadingState() => AuthButton(
-                                  text: AppLocalizations.of(context)!.loading,
-                                ),
-                            },
-                          ),
-                        ],
-                      ),
+                        ),
+                        TextSection(
+                          firstPart: context.loc!.already_have_account,
+                          secondPart: context.loc!.sign_in,
+                          onTap: () => sl<MainRouter>().navigate(Routes.signIn),
+                        ),
+                        const SizedBox(
+                          height: 8,
+                        ),
+                        BlocBuilder(
+                          bloc: registerBloc,
+                          builder: (_, RegisterState state) => switch (state) {
+                            RegisterInitState() ||
+                            RegisterSuccessState() ||
+                            RegisterErrorState() =>
+                              AuthButton(
+                                text: context.loc!.register,
+                                onPressed: () {
+                                  registerBloc.add(
+                                    RegisterEvent.register(
+                                      phoneNumber: phoneNumberController.text,
+                                    ),
+                                  );
+                                },
+                              ),
+                            RegisterLoadingState() => AuthButton(
+                                text: context.loc!.loading,
+                              ),
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 ),

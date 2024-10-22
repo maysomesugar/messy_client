@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:messy_client/core/utils/extensions/context.dart';
 
 class TextSection extends StatelessWidget {
   final String username;
@@ -23,7 +24,7 @@ class TextSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              AppLocalizations.of(context)!.welcome_back,
+              context.loc!.welcome_back,
               style: const TextStyle(
                 fontSize: 28,
                 fontWeight: FontWeight.w500,
@@ -53,7 +54,7 @@ class TextSection extends StatelessWidget {
           height: 8,
         ),
         Text(
-          AppLocalizations.of(context)!.send_number(phoneNumber),
+          context.loc!.send_number(phoneNumber),
           textAlign: TextAlign.center,
           style: const TextStyle(
             color: TextColors.grey,

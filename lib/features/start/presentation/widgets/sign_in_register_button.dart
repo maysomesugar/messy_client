@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:messy_client/core/utils/extensions/context.dart';
 
 class SignInRegisterButton extends StatefulWidget {
   final StreamController? bingController;
@@ -23,6 +24,7 @@ class SignInRegisterButton extends StatefulWidget {
 class _SignInRegisterButtonState extends State<SignInRegisterButton>
     with SingleTickerProviderStateMixin {
   static const padding = 24.0;
+  static const heroTag = 'authButton';
 
   late final AnimationController controller;
 
@@ -88,11 +90,15 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
             children: [
               Align(
                 alignment: alignment.value,
-                child: Container(
-                  width: (MediaQuery.of(context).size.width - padding * 2) / 2,
-                  decoration: BoxDecoration(
-                    color: ElementColors.white,
-                    borderRadius: BorderRadius.circular(20),
+                child: Hero(
+                  tag: heroTag,
+                  child: Container(
+                    width:
+                        (MediaQuery.of(context).size.width - padding * 2) / 2,
+                    decoration: BoxDecoration(
+                      color: ElementColors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
               ),
@@ -100,6 +106,7 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                 children: [
                   Expanded(
                     child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
                       onTap: () {
                         widget.bingController?.add(null);
                         controller.reverse().whenCompleteOrCancel(() {
@@ -108,16 +115,14 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                           }
                         });
                       },
-                      child: SizedBox.expand(
-                        child: Center(
-                          child: Text(
-                            AppLocalizations.of(context)!.sign_in,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: signInColor.value,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      child: Center(
+                        child: Text(
+                          context.loc!.sign_in,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: signInColor.value,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
@@ -125,6 +130,7 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                   ),
                   Expanded(
                     child: GestureDetector(
+                      behavior: HitTestBehavior.translucent,
                       onTap: () {
                         widget.bingController?.add(null);
                         controller.forward().whenCompleteOrCancel(() {
@@ -133,16 +139,14 @@ class _SignInRegisterButtonState extends State<SignInRegisterButton>
                           }
                         });
                       },
-                      child: SizedBox.expand(
-                        child: Center(
-                          child: Text(
-                            AppLocalizations.of(context)!.register,
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                              color: registerColor.value,
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
-                            ),
+                      child: Center(
+                        child: Text(
+                          context.loc!.register,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: registerColor.value,
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),

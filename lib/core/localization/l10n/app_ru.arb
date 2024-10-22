@@ -11,5 +11,9 @@
     "loading": "Загрузка",
     "welcome": "Приветствую,",
     "welcome_back": "С возвращением,",
-    "send_number": "Мы отправили подтверждение по номеру {number}"
+    "send_number": "Мы отправили подтверждение по номеру {number}",
+    "good_morning": "Доброе утро",
+    "good_afternoon": "Добрый день",
+    "good_evening": "Добрый вечер",
+    "good_night": "Доброй ночи"
 }
