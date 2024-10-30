@@ -6,6 +6,7 @@ import 'package:messy_client/features/chats/domain/usecase/block_user_usecase.da
 import 'package:messy_client/features/chats/domain/usecase/delete_chat_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_categories_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_chats_usecase.dart';
+import 'package:messy_client/features/chats/domain/usecase/get_current_position_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/mark_as_unread_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/pin_chat_usecase.dart';
 import 'package:messy_client/features/chats/presentation/bloc/chat_bloc/chats_bloc.dart';
@@ -21,6 +22,7 @@ class ChatsProvider {
           sl<DeleteChatUsecase>(),
           sl<MarkAsUnreadUsecase>(),
           sl<PinChatUsecase>(),
+          sl<GetCurrentGeopositionUsecase>(),
         ),
         child: const ChatsPage(),
       );

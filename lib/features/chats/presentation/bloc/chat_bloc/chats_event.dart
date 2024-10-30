@@ -20,4 +20,6 @@ sealed class ChatsEvent with _$ChatsEvent {
   const factory ChatsEvent.pinChat({
     required String id,
   }) = ChatsPinChatEvent;
+  const factory ChatsEvent.getCurrentGeolocation() =
+      ChatsGetCurrentGeopositionEvent;
 }

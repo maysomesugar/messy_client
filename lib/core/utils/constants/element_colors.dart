@@ -7,5 +7,5 @@ abstract class ElementColors {
   static const buttonGrey = Color(0xFF3B3941);
   static const borderGrey = Color(0xFF9597B2);
   static const backgroundGrey = Color(0xFF7C7E98);
-  static const backgroundLime = Color(0xFF7CFDD0);
+  static const green = Color(0xFF2DB72C);
 }

@@ -22,7 +22,7 @@ ChatDto _$ChatDtoFromJson(Map<String, dynamic> json) {
 mixin _$ChatDto {
   String get id => throw _privateConstructorUsedError;
   UserDto get user => throw _privateConstructorUsedError;
-  bool get pinned => throw _privateConstructorUsedError;
+  List<MessageDto> get messages => throw _privateConstructorUsedError;
 
   /// Serializes this ChatDto to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $ChatDtoCopyWith<$Res> {
   factory $ChatDtoCopyWith(ChatDto value, $Res Function(ChatDto) then) =
       _$ChatDtoCopyWithImpl<$Res, ChatDto>;
   @useResult
-  $Res call({String id, UserDto user, bool pinned});
+  $Res call({String id, UserDto user, List<MessageDto> messages});
 
   $UserDtoCopyWith<$Res> get user;
 }
@@ -60,7 +60,7 @@ class _$ChatDtoCopyWithImpl<$Res, $Val extends ChatDto>
   $Res call({
     Object? id = null,
     Object? user = null,
-    Object? pinned = null,
+    Object? messages = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -71,10 +71,10 @@ class _$ChatDtoCopyWithImpl<$Res, $Val extends ChatDto>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserDto,
-      pinned: null == pinned
-          ? _value.pinned
-          : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
+      messages: null == messages
+          ? _value.messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<MessageDto>,
     ) as $Val);
   }
 
@@ -96,7 +96,7 @@ abstract class _$$ChatDtoImplCopyWith<$Res> implements $ChatDtoCopyWith<$Res> {
       __$$ChatDtoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, UserDto user, bool pinned});
+  $Res call({String id, UserDto user, List<MessageDto> messages});
 
   @override
   $UserDtoCopyWith<$Res> get user;
@@ -117,7 +117,7 @@ class __$$ChatDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? user = null,
-    Object? pinned = null,
+    Object? messages = null,
   }) {
     return _then(_$ChatDtoImpl(
       id: null == id
@@ -128,10 +128,10 @@ class __$$ChatDtoImplCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as UserDto,
-      pinned: null == pinned
-          ? _value.pinned
-          : pinned // ignore: cast_nullable_to_non_nullable
-              as bool,
+      messages: null == messages
+          ? _value._messages
+          : messages // ignore: cast_nullable_to_non_nullable
+              as List<MessageDto>,
     ));
   }
 }
@@ -140,7 +140,10 @@ class __$$ChatDtoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ChatDtoImpl implements _ChatDto {
   const _$ChatDtoImpl(
-      {required this.id, required this.user, required this.pinned});
+      {required this.id,
+      required this.user,
+      required final List<MessageDto> messages})
+      : _messages = messages;
 
   factory _$ChatDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ChatDtoImplFromJson(json);
@@ -149,12 +152,17 @@ class _$ChatDtoImpl implements _ChatDto {
   final String id;
   @override
   final UserDto user;
+  final List<MessageDto> _messages;
   @override
-  final bool pinned;
+  List<MessageDto> get messages {
+    if (_messages is EqualUnmodifiableListView) return _messages;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_messages);
+  }
 
   @override
   String toString() {
-    return 'ChatDto(id: $id, user: $user, pinned: $pinned)';
+    return 'ChatDto(id: $id, user: $user, messages: $messages)';
   }
 
   @override
@@ -164,12 +172,13 @@ class _$ChatDtoImpl implements _ChatDto {
             other is _$ChatDtoImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.user, user) || other.user == user) &&
-            (identical(other.pinned, pinned) || other.pinned == pinned));
+            const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, user, pinned);
+  int get hashCode => Object.hash(
+      runtimeType, id, user, const DeepCollectionEquality().hash(_messages));
 
   /// Create a copy of ChatDto
   /// with the given fields replaced by the non-null parameter values.
@@ -191,7 +200,7 @@ abstract class _ChatDto implements ChatDto {
   const factory _ChatDto(
       {required final String id,
       required final UserDto user,
-      required final bool pinned}) = _$ChatDtoImpl;
+      required final List<MessageDto> messages}) = _$ChatDtoImpl;
 
   factory _ChatDto.fromJson(Map<String, dynamic> json) = _$ChatDtoImpl.fromJson;
 
@@ -200,7 +209,7 @@ abstract class _ChatDto implements ChatDto {
   @override
   UserDto get user;
   @override
-  bool get pinned;
+  List<MessageDto> get messages;
 
   /// Create a copy of ChatDto
   /// with the given fields replaced by the non-null parameter values.

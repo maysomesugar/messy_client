@@ -8,11 +8,12 @@ import 'package:messy_client/features/chats/domain/usecase/block_user_usecase.da
 import 'package:messy_client/features/chats/domain/usecase/delete_chat_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_categories_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_chats_usecase.dart';
+import 'package:messy_client/features/chats/domain/usecase/get_current_position_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/mark_as_unread_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/pin_chat_usecase.dart';
 import 'package:messy_client/features/chats/presentation/pages/chats_provider.dart';
 
-Future<void> initChatInjections() async {
+Future<void> initChatsInjections() async {
   sl.registerSingleton<ChatsRemoteDatasource>(ChatsRemoteDatasourceMockImpl());
   sl.registerSingleton<ChatsRepository>(
       ChatsRepositoryImpl(sl<ChatsRemoteDatasource>()));
@@ -26,4 +27,5 @@ Future<void> initChatInjections() async {
   sl.registerSingleton(BlockUserUsecase(sl<ChatsRepository>()));
   sl.registerSingleton(MarkAsUnreadUsecase(sl<ChatsRepository>()));
   sl.registerSingleton(PinChatUsecase(sl<ChatsRepository>()));
+  sl.registerSingleton(GetCurrentGeopositionUsecase(sl<ChatsRepository>()));
 }

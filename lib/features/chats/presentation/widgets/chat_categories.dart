@@ -14,8 +14,7 @@ class ChatCategories extends StatefulWidget {
 class _ChatCategoriesState extends State<ChatCategories> {
   @override
   Widget build(BuildContext context) {
-    final chatsBloc = context.watch<ChatsBloc>()
-      ..add(const ChatsEvent.getCategories());
+    final chatsBloc = context.watch<ChatsBloc>();
 
     return Container(
       height: 70,
@@ -25,7 +24,11 @@ class _ChatCategoriesState extends State<ChatCategories> {
       ),
       child: BlocBuilder(
         bloc: chatsBloc,
-        buildWhen: (previous, current) => current is! ChatsChatsLoadedState,
+        buildWhen: (previous, current) =>
+            current is! ChatsChatsLoadedState &&
+            current is! ChatsGeopositionLoadedState &&
+            current is! ChatsChatsErrorState &&
+            current is! ChatsGeopositionErrorState,
         builder: (context, ChatsState state) => switch (state) {
           ChatsLoadingState() => Skeleton.leaf(
               enabled: true,
@@ -53,17 +56,16 @@ class _ChatCategoriesState extends State<ChatCategories> {
                 );
               },
             ),
-          ChatsEmptyState() => const Center(
-              child: Text(
-                'there is nothing',
-              ),
-            ),
-          ChatsErrorState(:final message) => Center(
+          ChatsCategoriesErrorState(:final message) => Center(
               child: Text(
                 message,
               ),
             ),
-          ChatsChatsLoadedState() => const Placeholder(), //TODO: replace
+          ChatsChatsLoadedState() ||
+          ChatsGeopositionLoadedState() ||
+          ChatsChatsErrorState() ||
+          ChatsGeopositionErrorState() =>
+            const Placeholder(), //TODO: replace
         },
       ),
     );

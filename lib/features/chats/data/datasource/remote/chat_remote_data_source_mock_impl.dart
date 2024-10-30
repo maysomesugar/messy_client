@@ -1,13 +1,13 @@
 import 'package:messy_client/features/chats/data/datasource/remote/chat_remote_data_source.dart';
 import 'package:messy_client/features/chats/data/dto/category_dto/category_dto.dart';
-import 'package:messy_client/features/chats/data/dto/chat_dto/chat_dto.dart';
+import 'package:messy_client/features/chats/data/dto/outer_chat_dto/outer_chat_dto.dart';
 import 'package:messy_client/shared/data/dto/user_dto/user_dto.dart';
 
 class ChatsRemoteDatasourceMockImpl extends ChatsRemoteDatasource {
   ChatsRemoteDatasourceMockImpl();
 
   @override
-  Future<List<ChatDto>> getChats(String token) async {
+  Future<List<OuterChatDto>> getChats(String token) async {
     return Future.delayed(
       const Duration(
         seconds: 2,
@@ -15,7 +15,7 @@ class ChatsRemoteDatasourceMockImpl extends ChatsRemoteDatasource {
     ).then(
       (_) => List.generate(
         10,
-        (index) => ChatDto(
+        (index) => OuterChatDto(
           id: index.toString(),
           user: UserDto(
             username: index.toString(),

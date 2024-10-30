@@ -62,11 +62,6 @@ class _FloatingBottomNavigationBarItemState
     return GestureDetector(
       behavior: HitTestBehavior.translucent,
       onTap: widget.onTap,
-      // onDoubleTap: () {
-      //   final renderObject = context.findRenderObject();
-
-      //   print(renderObject?.attached);
-      // },
       child: AnimatedBuilder(
         animation: controller,
         builder: (context, child) {

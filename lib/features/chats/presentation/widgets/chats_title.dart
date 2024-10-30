@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
+import 'package:messy_client/core/utils/extensions/context.dart';
 
 class ChatsTitle extends StatelessWidget {
   final int messagesCount;
@@ -12,11 +13,10 @@ class ChatsTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        const Text(
-          'Chats',
-          style: TextStyle(
+        Text(
+          context.loc!.chats,
+          style: const TextStyle(
             fontSize: 36,
             fontWeight: FontWeight.bold,
           ),

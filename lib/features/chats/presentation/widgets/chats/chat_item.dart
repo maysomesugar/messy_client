@@ -71,7 +71,7 @@ class ChatItem extends StatelessWidget {
               unreadedCount != null
                   ? CircleAvatar(
                       radius: 12,
-                      backgroundColor: ElementColors.backgroundLime,
+                      backgroundColor: ElementColors.green,
                       child: Text(
                         unreadedCount.toString(),
                         style: const TextStyle(

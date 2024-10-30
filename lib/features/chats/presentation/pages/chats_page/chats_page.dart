@@ -5,7 +5,7 @@ import 'package:messy_client/features/chats/presentation/bloc/chat_bloc/chats_bl
 import 'package:messy_client/features/chats/presentation/widgets/chat_categories.dart';
 import 'package:messy_client/features/chats/presentation/widgets/chats/chat_item.dart';
 import 'package:messy_client/features/chats/presentation/widgets/chats/chats.dart';
-import 'package:messy_client/features/chats/presentation/widgets/chats_header.dart';
+import 'package:messy_client/features/chats/presentation/widgets/header/chats_header.dart';
 import 'package:messy_client/features/chats/presentation/widgets/chats_title.dart';
 import 'package:messy_client/features/chats/presentation/widgets/day_period_text.dart';
 import 'package:messy_client/features/chats/presentation/widgets/event_item.dart';

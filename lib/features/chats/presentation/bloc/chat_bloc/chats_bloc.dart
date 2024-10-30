@@ -1,12 +1,15 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:messy_client/features/chats/domain/model/category_model.dart';
-import 'package:messy_client/features/chats/domain/model/chat_model.dart';
+import 'package:messy_client/features/chats/domain/model/outer_chat_model.dart';
 import 'package:messy_client/features/chats/domain/usecase/archive_chat_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/block_user_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/delete_chat_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_categories_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/get_chats_usecase.dart';
+import 'package:messy_client/features/chats/domain/usecase/get_current_position_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/mark_as_unread_usecase.dart';
 import 'package:messy_client/features/chats/domain/usecase/pin_chat_usecase.dart';
 
@@ -22,9 +25,11 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
   final DeleteChatUsecase _deleteChatUsecase;
   final MarkAsUnreadUsecase _markAsUnreadUsecase;
   final PinChatUsecase _pinChatUsecase;
+  final GetCurrentGeopositionUsecase _getCurrentPositionUsecase;
 
-  List<ChatModel>? _chats;
+  List<OuterChatModel>? _chats;
   List<CategoryModel>? _categories;
+  List<Placemark>? _geoposition;
 
   ChatsBloc(
     this._getChatsUsecase,
@@ -34,6 +39,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     this._deleteChatUsecase,
     this._markAsUnreadUsecase,
     this._pinChatUsecase,
+    this._getCurrentPositionUsecase,
   ) : super(const ChatsState.loading()) {
     on<ChatsGetChatsEvent>(_fetchChats);
     on<ChatsGetCategoriesEvent>(_fetchCategories);
@@ -42,8 +48,11 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     on<ChatsDeleteChatEvent>(_deleteChat);
     on<ChatsMarkAsUnreadEvent>(_markAsUnread);
     on<ChatsPinChatEvent>(_pinChat);
+    on<ChatsGetCurrentGeopositionEvent>(_fetchCurrentGeoposition);
 
     add(const ChatsEvent.getChats());
+    add(const ChatsEvent.getCategories());
+    add(const ChatsEvent.getCurrentGeolocation());
   }
 
   Future<void> _fetchChats(
@@ -58,7 +67,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
       chatsResult.fold(
         (failure) {
           emit(
-            ChatsState.error(
+            ChatsState.chatsError(
               message: failure.message,
             ),
           );
@@ -71,7 +80,8 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
 
     emit(
       ChatsState.chatsLoaded(
-        chats: _chats!,
+        pinnedChats: _chats!.where((chat) => chat.pinned).toList(),
+        commonChats: _chats!.where((chat) => !chat.pinned).toList(),
       ),
     );
   }
@@ -88,7 +98,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
       categoriesResult.fold(
         (failure) {
           emit(
-            ChatsState.error(
+            ChatsState.categoriesError(
               message: failure.message,
             ),
           );
@@ -105,6 +115,31 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     );
   }
 
+  Future<void> _fetchCurrentGeoposition(
+      ChatsGetCurrentGeopositionEvent event, Emitter<ChatsState> emit) async {
+    final geopositionResult =
+        await _getCurrentPositionUsecase(GetCurrentGeopositionParams());
+
+    geopositionResult.fold(
+      (failure) {
+        emit(
+          ChatsState.geopositionError(
+            message: failure.message,
+          ),
+        );
+      },
+      (geoposition) {
+        _geoposition = geoposition;
+      },
+    );
+
+    emit(
+      ChatsState.geopositionLoaded(
+        geoposition: _geoposition!,
+      ),
+    );
+  }
+
   Future<void> _archiveChat(
       ChatsArchiveChatEvent event, Emitter<ChatsState> emit) async {
     final archiveResult = await _archiveChatUsecase(
@@ -116,7 +151,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     archiveResult.fold(
       (failure) {
         emit(
-          ChatsState.error(
+          ChatsState.chatsError(
             message: failure.message,
           ),
         );
@@ -138,7 +173,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     blockResult.fold(
       (failure) {
         emit(
-          ChatsState.error(
+          ChatsState.chatsError(
             message: failure.message,
           ),
         );
@@ -161,7 +196,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     deleteResult.fold(
       (failure) {
         emit(
-          ChatsState.error(
+          ChatsState.chatsError(
             message: failure.message,
           ),
         );
@@ -183,7 +218,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     markingResult.fold(
       (failure) {
         emit(
-          ChatsState.error(
+          ChatsState.chatsError(
             message: failure.message,
           ),
         );
@@ -205,7 +240,7 @@ class ChatsBloc extends Bloc<ChatsEvent, ChatsState> {
     deleteResult.fold(
       (failure) {
         emit(
-          ChatsState.error(
+          ChatsState.chatsError(
             message: failure.message,
           ),
         );

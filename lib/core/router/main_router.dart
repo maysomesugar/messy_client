@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:messy_client/core/utils/injection.dart';
+import 'package:messy_client/features/chat/presentation/pages/chat_provider.dart';
 import 'package:messy_client/features/phone_verification/presentation/pages/phone_verificaton_privider.dart';
 import 'package:messy_client/features/chats/presentation/pages/chats_provider.dart';
 import 'package:messy_client/features/auth/presentation/pages/auth_provider.dart';
@@ -14,6 +15,7 @@ class MainRouter {
   static const _chats = '/chats';
   static const _phoneVerification = '/phoneVerification';
   static const _phoneSecondaryVerification = '/phoneSecondaryVerification';
+  static const _chat = '/chat';
 
   static final GlobalKey<NavigatorState> _rootNavigatorKey =
       GlobalKey<NavigatorState>();
@@ -22,7 +24,7 @@ class MainRouter {
       GlobalKey<NavigatorState>();
 
   final router = GoRouter(
-    initialLocation: _chats,
+    initialLocation: _chat,
     navigatorKey: _rootNavigatorKey,
     routes: [
       GoRoute(
@@ -67,6 +69,10 @@ class MainRouter {
           ),
         ],
       ),
+      GoRoute(
+        path: _chat,
+        builder: (context, state) => sl<ChatProvider>().chat(),
+      ),
     ],
   );
 
@@ -90,6 +96,9 @@ class MainRouter {
       case Routes.phoneSecondaryVerification:
         router.push(_phoneSecondaryVerification, extra: extra);
         break;
+      case Routes.chat:
+        router.push(_chat, extra: extra);
+        break;
     }
   }
 }
@@ -101,4 +110,5 @@ enum Routes {
   chats,
   phoneVerification,
   phoneSecondaryVerification,
+  chat,
 }

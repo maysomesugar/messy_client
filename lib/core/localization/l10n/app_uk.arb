@@ -15,5 +15,8 @@
     "good_morning": "Добрий ранок",
     "good_afternoon": "Добрий день",
     "good_evening": "Добрий вечір",
-    "good_night": "Доброї ночі"
+    "good_night": "Доброї ночі",
+    "chats": "Чати",
+    "pinned": "Закріплені",
+    "conversation": "Обговорення"
 }

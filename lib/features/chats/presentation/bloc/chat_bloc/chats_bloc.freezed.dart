@@ -19,28 +19,40 @@ mixin _$ChatsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,8 +62,12 @@ mixin _$ChatsState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,8 +75,10 @@ mixin _$ChatsState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -68,8 +86,10 @@ mixin _$ChatsState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,10 +158,14 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) {
     return loading();
   }
@@ -150,10 +174,14 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) {
     return loading?.call();
   }
@@ -162,10 +190,14 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -181,8 +213,12 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) {
     return loading(this);
   }
@@ -193,8 +229,10 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) {
     return loading?.call(this);
   }
@@ -205,8 +243,10 @@ class _$ChatsLoadingStateImpl implements ChatsLoadingState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -227,7 +267,8 @@ abstract class _$$ChatsChatsLoadedStateImplCopyWith<$Res> {
           $Res Function(_$ChatsChatsLoadedStateImpl) then) =
       __$$ChatsChatsLoadedStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<ChatModel> chats});
+  $Res call(
+      {List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats});
 }
 
 /// @nodoc
@@ -243,13 +284,18 @@ class __$$ChatsChatsLoadedStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chats = null,
+    Object? commonChats = null,
+    Object? pinnedChats = null,
   }) {
     return _then(_$ChatsChatsLoadedStateImpl(
-      chats: null == chats
-          ? _value._chats
-          : chats // ignore: cast_nullable_to_non_nullable
-              as List<ChatModel>,
+      commonChats: null == commonChats
+          ? _value._commonChats
+          : commonChats // ignore: cast_nullable_to_non_nullable
+              as List<OuterChatModel>,
+      pinnedChats: null == pinnedChats
+          ? _value._pinnedChats
+          : pinnedChats // ignore: cast_nullable_to_non_nullable
+              as List<OuterChatModel>,
     ));
   }
 }
@@ -257,20 +303,31 @@ class __$$ChatsChatsLoadedStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
-  const _$ChatsChatsLoadedStateImpl({required final List<ChatModel> chats})
-      : _chats = chats;
+  const _$ChatsChatsLoadedStateImpl(
+      {required final List<OuterChatModel> commonChats,
+      required final List<OuterChatModel> pinnedChats})
+      : _commonChats = commonChats,
+        _pinnedChats = pinnedChats;
 
-  final List<ChatModel> _chats;
+  final List<OuterChatModel> _commonChats;
   @override
-  List<ChatModel> get chats {
-    if (_chats is EqualUnmodifiableListView) return _chats;
+  List<OuterChatModel> get commonChats {
+    if (_commonChats is EqualUnmodifiableListView) return _commonChats;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_chats);
+    return EqualUnmodifiableListView(_commonChats);
+  }
+
+  final List<OuterChatModel> _pinnedChats;
+  @override
+  List<OuterChatModel> get pinnedChats {
+    if (_pinnedChats is EqualUnmodifiableListView) return _pinnedChats;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_pinnedChats);
   }
 
   @override
   String toString() {
-    return 'ChatsState.chatsLoaded(chats: $chats)';
+    return 'ChatsState.chatsLoaded(commonChats: $commonChats, pinnedChats: $pinnedChats)';
   }
 
   @override
@@ -278,12 +335,17 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ChatsChatsLoadedStateImpl &&
-            const DeepCollectionEquality().equals(other._chats, _chats));
+            const DeepCollectionEquality()
+                .equals(other._commonChats, _commonChats) &&
+            const DeepCollectionEquality()
+                .equals(other._pinnedChats, _pinnedChats));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_chats));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_commonChats),
+      const DeepCollectionEquality().hash(_pinnedChats));
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -298,38 +360,50 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) {
-    return chatsLoaded(chats);
+    return chatsLoaded(commonChats, pinnedChats);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) {
-    return chatsLoaded?.call(chats);
+    return chatsLoaded?.call(commonChats, pinnedChats);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) {
     if (chatsLoaded != null) {
-      return chatsLoaded(chats);
+      return chatsLoaded(commonChats, pinnedChats);
     }
     return orElse();
   }
@@ -341,8 +415,12 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) {
     return chatsLoaded(this);
   }
@@ -353,8 +431,10 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) {
     return chatsLoaded?.call(this);
   }
@@ -365,8 +445,10 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) {
     if (chatsLoaded != null) {
@@ -377,10 +459,13 @@ class _$ChatsChatsLoadedStateImpl implements ChatsChatsLoadedState {
 }
 
 abstract class ChatsChatsLoadedState implements ChatsState {
-  const factory ChatsChatsLoadedState({required final List<ChatModel> chats}) =
+  const factory ChatsChatsLoadedState(
+          {required final List<OuterChatModel> commonChats,
+          required final List<OuterChatModel> pinnedChats}) =
       _$ChatsChatsLoadedStateImpl;
 
-  List<ChatModel> get chats;
+  List<OuterChatModel> get commonChats;
+  List<OuterChatModel> get pinnedChats;
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
@@ -470,10 +555,14 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) {
     return categoriesLoaded(categories);
   }
@@ -482,10 +571,14 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) {
     return categoriesLoaded?.call(categories);
   }
@@ -494,10 +587,14 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) {
     if (categoriesLoaded != null) {
@@ -513,8 +610,12 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) {
     return categoriesLoaded(this);
   }
@@ -525,8 +626,10 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) {
     return categoriesLoaded?.call(this);
   }
@@ -537,8 +640,10 @@ class _$ChatsCategoriesLoadedStateImpl implements ChatsCategoriesLoadedState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) {
     if (categoriesLoaded != null) {
@@ -563,79 +668,130 @@ abstract class ChatsCategoriesLoadedState implements ChatsState {
 }
 
 /// @nodoc
-abstract class _$$ChatsEmptyStateImplCopyWith<$Res> {
-  factory _$$ChatsEmptyStateImplCopyWith(_$ChatsEmptyStateImpl value,
-          $Res Function(_$ChatsEmptyStateImpl) then) =
-      __$$ChatsEmptyStateImplCopyWithImpl<$Res>;
+abstract class _$$ChatsGeopositionLoadedStateImplCopyWith<$Res> {
+  factory _$$ChatsGeopositionLoadedStateImplCopyWith(
+          _$ChatsGeopositionLoadedStateImpl value,
+          $Res Function(_$ChatsGeopositionLoadedStateImpl) then) =
+      __$$ChatsGeopositionLoadedStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Placemark> geoposition});
 }
 
 /// @nodoc
-class __$$ChatsEmptyStateImplCopyWithImpl<$Res>
-    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsEmptyStateImpl>
-    implements _$$ChatsEmptyStateImplCopyWith<$Res> {
-  __$$ChatsEmptyStateImplCopyWithImpl(
-      _$ChatsEmptyStateImpl _value, $Res Function(_$ChatsEmptyStateImpl) _then)
+class __$$ChatsGeopositionLoadedStateImplCopyWithImpl<$Res>
+    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsGeopositionLoadedStateImpl>
+    implements _$$ChatsGeopositionLoadedStateImplCopyWith<$Res> {
+  __$$ChatsGeopositionLoadedStateImplCopyWithImpl(
+      _$ChatsGeopositionLoadedStateImpl _value,
+      $Res Function(_$ChatsGeopositionLoadedStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? geoposition = null,
+  }) {
+    return _then(_$ChatsGeopositionLoadedStateImpl(
+      geoposition: null == geoposition
+          ? _value._geoposition
+          : geoposition // ignore: cast_nullable_to_non_nullable
+              as List<Placemark>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$ChatsEmptyStateImpl implements ChatsEmptyState {
-  const _$ChatsEmptyStateImpl();
+class _$ChatsGeopositionLoadedStateImpl implements ChatsGeopositionLoadedState {
+  const _$ChatsGeopositionLoadedStateImpl(
+      {required final List<Placemark> geoposition})
+      : _geoposition = geoposition;
+
+  final List<Placemark> _geoposition;
+  @override
+  List<Placemark> get geoposition {
+    if (_geoposition is EqualUnmodifiableListView) return _geoposition;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_geoposition);
+  }
 
   @override
   String toString() {
-    return 'ChatsState.empty()';
+    return 'ChatsState.geopositionLoaded(geoposition: $geoposition)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ChatsEmptyStateImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ChatsGeopositionLoadedStateImpl &&
+            const DeepCollectionEquality()
+                .equals(other._geoposition, _geoposition));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_geoposition));
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatsGeopositionLoadedStateImplCopyWith<_$ChatsGeopositionLoadedStateImpl>
+      get copyWith => __$$ChatsGeopositionLoadedStateImplCopyWithImpl<
+          _$ChatsGeopositionLoadedStateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) {
-    return empty();
+    return geopositionLoaded(geoposition);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) {
-    return empty?.call();
+    return geopositionLoaded?.call(geoposition);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) {
-    if (empty != null) {
-      return empty();
+    if (geopositionLoaded != null) {
+      return geopositionLoaded(geoposition);
     }
     return orElse();
   }
@@ -647,10 +803,14 @@ class _$ChatsEmptyStateImpl implements ChatsEmptyState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) {
-    return empty(this);
+    return geopositionLoaded(this);
   }
 
   @override
@@ -659,10 +819,12 @@ class _$ChatsEmptyStateImpl implements ChatsEmptyState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) {
-    return empty?.call(this);
+    return geopositionLoaded?.call(this);
   }
 
   @override
@@ -671,36 +833,48 @@ class _$ChatsEmptyStateImpl implements ChatsEmptyState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) {
-    if (empty != null) {
-      return empty(this);
+    if (geopositionLoaded != null) {
+      return geopositionLoaded(this);
     }
     return orElse();
   }
 }
 
-abstract class ChatsEmptyState implements ChatsState {
-  const factory ChatsEmptyState() = _$ChatsEmptyStateImpl;
+abstract class ChatsGeopositionLoadedState implements ChatsState {
+  const factory ChatsGeopositionLoadedState(
+          {required final List<Placemark> geoposition}) =
+      _$ChatsGeopositionLoadedStateImpl;
+
+  List<Placemark> get geoposition;
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatsGeopositionLoadedStateImplCopyWith<_$ChatsGeopositionLoadedStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ChatsErrorStateImplCopyWith<$Res> {
-  factory _$$ChatsErrorStateImplCopyWith(_$ChatsErrorStateImpl value,
-          $Res Function(_$ChatsErrorStateImpl) then) =
-      __$$ChatsErrorStateImplCopyWithImpl<$Res>;
+abstract class _$$ChatsChatsErrorStateImplCopyWith<$Res> {
+  factory _$$ChatsChatsErrorStateImplCopyWith(_$ChatsChatsErrorStateImpl value,
+          $Res Function(_$ChatsChatsErrorStateImpl) then) =
+      __$$ChatsChatsErrorStateImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String message});
 }
 
 /// @nodoc
-class __$$ChatsErrorStateImplCopyWithImpl<$Res>
-    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsErrorStateImpl>
-    implements _$$ChatsErrorStateImplCopyWith<$Res> {
-  __$$ChatsErrorStateImplCopyWithImpl(
-      _$ChatsErrorStateImpl _value, $Res Function(_$ChatsErrorStateImpl) _then)
+class __$$ChatsChatsErrorStateImplCopyWithImpl<$Res>
+    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsChatsErrorStateImpl>
+    implements _$$ChatsChatsErrorStateImplCopyWith<$Res> {
+  __$$ChatsChatsErrorStateImplCopyWithImpl(_$ChatsChatsErrorStateImpl _value,
+      $Res Function(_$ChatsChatsErrorStateImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of ChatsState
@@ -710,7 +884,7 @@ class __$$ChatsErrorStateImplCopyWithImpl<$Res>
   $Res call({
     Object? message = null,
   }) {
-    return _then(_$ChatsErrorStateImpl(
+    return _then(_$ChatsChatsErrorStateImpl(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -721,22 +895,22 @@ class __$$ChatsErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ChatsErrorStateImpl implements ChatsErrorState {
-  const _$ChatsErrorStateImpl({required this.message});
+class _$ChatsChatsErrorStateImpl implements ChatsChatsErrorState {
+  const _$ChatsChatsErrorStateImpl({required this.message});
 
   @override
   final String message;
 
   @override
   String toString() {
-    return 'ChatsState.error(message: $message)';
+    return 'ChatsState.chatsError(message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ChatsErrorStateImpl &&
+            other is _$ChatsChatsErrorStateImpl &&
             (identical(other.message, message) || other.message == message));
   }
 
@@ -748,46 +922,59 @@ class _$ChatsErrorStateImpl implements ChatsErrorState {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$ChatsErrorStateImplCopyWith<_$ChatsErrorStateImpl> get copyWith =>
-      __$$ChatsErrorStateImplCopyWithImpl<_$ChatsErrorStateImpl>(
-          this, _$identity);
+  _$$ChatsChatsErrorStateImplCopyWith<_$ChatsChatsErrorStateImpl>
+      get copyWith =>
+          __$$ChatsChatsErrorStateImplCopyWithImpl<_$ChatsChatsErrorStateImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(List<ChatModel> chats) chatsLoaded,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
     required TResult Function(List<CategoryModel> categories) categoriesLoaded,
-    required TResult Function() empty,
-    required TResult Function(String message) error,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
   }) {
-    return error(message);
+    return chatsError(message);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(List<ChatModel> chats)? chatsLoaded,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult? Function()? empty,
-    TResult? Function(String message)? error,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
   }) {
-    return error?.call(message);
+    return chatsError?.call(message);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(List<ChatModel> chats)? chatsLoaded,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
     TResult Function(List<CategoryModel> categories)? categoriesLoaded,
-    TResult Function()? empty,
-    TResult Function(String message)? error,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(message);
+    if (chatsError != null) {
+      return chatsError(message);
     }
     return orElse();
   }
@@ -799,10 +986,14 @@ class _$ChatsErrorStateImpl implements ChatsErrorState {
     required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
     required TResult Function(ChatsCategoriesLoadedState value)
         categoriesLoaded,
-    required TResult Function(ChatsEmptyState value) empty,
-    required TResult Function(ChatsErrorState value) error,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
   }) {
-    return error(this);
+    return chatsError(this);
   }
 
   @override
@@ -811,10 +1002,12 @@ class _$ChatsErrorStateImpl implements ChatsErrorState {
     TResult? Function(ChatsLoadingState value)? loading,
     TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult? Function(ChatsEmptyState value)? empty,
-    TResult? Function(ChatsErrorState value)? error,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
   }) {
-    return error?.call(this);
+    return chatsError?.call(this);
   }
 
   @override
@@ -823,28 +1016,396 @@ class _$ChatsErrorStateImpl implements ChatsErrorState {
     TResult Function(ChatsLoadingState value)? loading,
     TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
     TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
-    TResult Function(ChatsEmptyState value)? empty,
-    TResult Function(ChatsErrorState value)? error,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
     required TResult orElse(),
   }) {
-    if (error != null) {
-      return error(this);
+    if (chatsError != null) {
+      return chatsError(this);
     }
     return orElse();
   }
 }
 
-abstract class ChatsErrorState implements ChatsState {
-  const factory ChatsErrorState({required final String message}) =
-      _$ChatsErrorStateImpl;
+abstract class ChatsChatsErrorState implements ChatsState {
+  const factory ChatsChatsErrorState({required final String message}) =
+      _$ChatsChatsErrorStateImpl;
 
   String get message;
 
   /// Create a copy of ChatsState
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$ChatsErrorStateImplCopyWith<_$ChatsErrorStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ChatsChatsErrorStateImplCopyWith<_$ChatsChatsErrorStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatsCategoriesErrorStateImplCopyWith<$Res> {
+  factory _$$ChatsCategoriesErrorStateImplCopyWith(
+          _$ChatsCategoriesErrorStateImpl value,
+          $Res Function(_$ChatsCategoriesErrorStateImpl) then) =
+      __$$ChatsCategoriesErrorStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChatsCategoriesErrorStateImplCopyWithImpl<$Res>
+    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsCategoriesErrorStateImpl>
+    implements _$$ChatsCategoriesErrorStateImplCopyWith<$Res> {
+  __$$ChatsCategoriesErrorStateImplCopyWithImpl(
+      _$ChatsCategoriesErrorStateImpl _value,
+      $Res Function(_$ChatsCategoriesErrorStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChatsCategoriesErrorStateImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatsCategoriesErrorStateImpl implements ChatsCategoriesErrorState {
+  const _$ChatsCategoriesErrorStateImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChatsState.categoriesError(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatsCategoriesErrorStateImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatsCategoriesErrorStateImplCopyWith<_$ChatsCategoriesErrorStateImpl>
+      get copyWith => __$$ChatsCategoriesErrorStateImplCopyWithImpl<
+          _$ChatsCategoriesErrorStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
+    required TResult Function(List<CategoryModel> categories) categoriesLoaded,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
+  }) {
+    return categoriesError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
+    TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
+  }) {
+    return categoriesError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
+    TResult Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
+    required TResult orElse(),
+  }) {
+    if (categoriesError != null) {
+      return categoriesError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatsLoadingState value) loading,
+    required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
+    required TResult Function(ChatsCategoriesLoadedState value)
+        categoriesLoaded,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
+  }) {
+    return categoriesError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatsLoadingState value)? loading,
+    TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
+    TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
+  }) {
+    return categoriesError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatsLoadingState value)? loading,
+    TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
+    TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
+    required TResult orElse(),
+  }) {
+    if (categoriesError != null) {
+      return categoriesError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatsCategoriesErrorState implements ChatsState {
+  const factory ChatsCategoriesErrorState({required final String message}) =
+      _$ChatsCategoriesErrorStateImpl;
+
+  String get message;
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatsCategoriesErrorStateImplCopyWith<_$ChatsCategoriesErrorStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatsGeopositionErrorStateImplCopyWith<$Res> {
+  factory _$$ChatsGeopositionErrorStateImplCopyWith(
+          _$ChatsGeopositionErrorStateImpl value,
+          $Res Function(_$ChatsGeopositionErrorStateImpl) then) =
+      __$$ChatsGeopositionErrorStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ChatsGeopositionErrorStateImplCopyWithImpl<$Res>
+    extends _$ChatsStateCopyWithImpl<$Res, _$ChatsGeopositionErrorStateImpl>
+    implements _$$ChatsGeopositionErrorStateImplCopyWith<$Res> {
+  __$$ChatsGeopositionErrorStateImplCopyWithImpl(
+      _$ChatsGeopositionErrorStateImpl _value,
+      $Res Function(_$ChatsGeopositionErrorStateImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ChatsGeopositionErrorStateImpl(
+      message: null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChatsGeopositionErrorStateImpl implements ChatsGeopositionErrorState {
+  const _$ChatsGeopositionErrorStateImpl({required this.message});
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'ChatsState.geopositionError(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatsGeopositionErrorStateImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChatsGeopositionErrorStateImplCopyWith<_$ChatsGeopositionErrorStateImpl>
+      get copyWith => __$$ChatsGeopositionErrorStateImplCopyWithImpl<
+          _$ChatsGeopositionErrorStateImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loading,
+    required TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)
+        chatsLoaded,
+    required TResult Function(List<CategoryModel> categories) categoriesLoaded,
+    required TResult Function(List<Placemark> geoposition) geopositionLoaded,
+    required TResult Function(String message) chatsError,
+    required TResult Function(String message) categoriesError,
+    required TResult Function(String message) geopositionError,
+  }) {
+    return geopositionError(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? loading,
+    TResult? Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
+    TResult? Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult? Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult? Function(String message)? chatsError,
+    TResult? Function(String message)? categoriesError,
+    TResult? Function(String message)? geopositionError,
+  }) {
+    return geopositionError?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loading,
+    TResult Function(
+            List<OuterChatModel> commonChats, List<OuterChatModel> pinnedChats)?
+        chatsLoaded,
+    TResult Function(List<CategoryModel> categories)? categoriesLoaded,
+    TResult Function(List<Placemark> geoposition)? geopositionLoaded,
+    TResult Function(String message)? chatsError,
+    TResult Function(String message)? categoriesError,
+    TResult Function(String message)? geopositionError,
+    required TResult orElse(),
+  }) {
+    if (geopositionError != null) {
+      return geopositionError(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatsLoadingState value) loading,
+    required TResult Function(ChatsChatsLoadedState value) chatsLoaded,
+    required TResult Function(ChatsCategoriesLoadedState value)
+        categoriesLoaded,
+    required TResult Function(ChatsGeopositionLoadedState value)
+        geopositionLoaded,
+    required TResult Function(ChatsChatsErrorState value) chatsError,
+    required TResult Function(ChatsCategoriesErrorState value) categoriesError,
+    required TResult Function(ChatsGeopositionErrorState value)
+        geopositionError,
+  }) {
+    return geopositionError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatsLoadingState value)? loading,
+    TResult? Function(ChatsChatsLoadedState value)? chatsLoaded,
+    TResult? Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
+    TResult? Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult? Function(ChatsChatsErrorState value)? chatsError,
+    TResult? Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult? Function(ChatsGeopositionErrorState value)? geopositionError,
+  }) {
+    return geopositionError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatsLoadingState value)? loading,
+    TResult Function(ChatsChatsLoadedState value)? chatsLoaded,
+    TResult Function(ChatsCategoriesLoadedState value)? categoriesLoaded,
+    TResult Function(ChatsGeopositionLoadedState value)? geopositionLoaded,
+    TResult Function(ChatsChatsErrorState value)? chatsError,
+    TResult Function(ChatsCategoriesErrorState value)? categoriesError,
+    TResult Function(ChatsGeopositionErrorState value)? geopositionError,
+    required TResult orElse(),
+  }) {
+    if (geopositionError != null) {
+      return geopositionError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatsGeopositionErrorState implements ChatsState {
+  const factory ChatsGeopositionErrorState({required final String message}) =
+      _$ChatsGeopositionErrorStateImpl;
+
+  String get message;
+
+  /// Create a copy of ChatsState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ChatsGeopositionErrorStateImplCopyWith<_$ChatsGeopositionErrorStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -858,6 +1419,7 @@ mixin _$ChatsEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -869,6 +1431,7 @@ mixin _$ChatsEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -880,6 +1443,7 @@ mixin _$ChatsEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -892,6 +1456,8 @@ mixin _$ChatsEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -903,6 +1469,8 @@ mixin _$ChatsEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -914,6 +1482,8 @@ mixin _$ChatsEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -988,6 +1558,7 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return getChats();
   }
@@ -1002,6 +1573,7 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return getChats?.call();
   }
@@ -1016,6 +1588,7 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (getChats != null) {
@@ -1034,6 +1607,8 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return getChats(this);
   }
@@ -1048,6 +1623,8 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return getChats?.call(this);
   }
@@ -1062,6 +1639,8 @@ class _$ChatsGetChatsEventImpl implements ChatsGetChatsEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (getChats != null) {
@@ -1126,6 +1705,7 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return getCategories();
   }
@@ -1140,6 +1720,7 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return getCategories?.call();
   }
@@ -1154,6 +1735,7 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -1172,6 +1754,8 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return getCategories(this);
   }
@@ -1186,6 +1770,8 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return getCategories?.call(this);
   }
@@ -1200,6 +1786,8 @@ class _$ChatsGetCategoriesEventImpl implements ChatsGetCategoriesEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (getCategories != null) {
@@ -1290,6 +1878,7 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return archiveChat(id);
   }
@@ -1304,6 +1893,7 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return archiveChat?.call(id);
   }
@@ -1318,6 +1908,7 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (archiveChat != null) {
@@ -1336,6 +1927,8 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return archiveChat(this);
   }
@@ -1350,6 +1943,8 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return archiveChat?.call(this);
   }
@@ -1364,6 +1959,8 @@ class _$ChatsArchiveChatEventImpl implements ChatsArchiveChatEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (archiveChat != null) {
@@ -1462,6 +2059,7 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return blockUser(id);
   }
@@ -1476,6 +2074,7 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return blockUser?.call(id);
   }
@@ -1490,6 +2089,7 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (blockUser != null) {
@@ -1508,6 +2108,8 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return blockUser(this);
   }
@@ -1522,6 +2124,8 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return blockUser?.call(this);
   }
@@ -1536,6 +2140,8 @@ class _$ChatsBlockUserEventImpl implements ChatsBlockUserEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (blockUser != null) {
@@ -1643,6 +2249,7 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return deleteChat(id, forBoth);
   }
@@ -1657,6 +2264,7 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return deleteChat?.call(id, forBoth);
   }
@@ -1671,6 +2279,7 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (deleteChat != null) {
@@ -1689,6 +2298,8 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return deleteChat(this);
   }
@@ -1703,6 +2314,8 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return deleteChat?.call(this);
   }
@@ -1717,6 +2330,8 @@ class _$ChatsDeleteChatEventImpl implements ChatsDeleteChatEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (deleteChat != null) {
@@ -1819,6 +2434,7 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return markAsUnread(id);
   }
@@ -1833,6 +2449,7 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return markAsUnread?.call(id);
   }
@@ -1847,6 +2464,7 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (markAsUnread != null) {
@@ -1865,6 +2483,8 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return markAsUnread(this);
   }
@@ -1879,6 +2499,8 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return markAsUnread?.call(this);
   }
@@ -1893,6 +2515,8 @@ class _$ChatsMarkAsUnreadEventImpl implements ChatsMarkAsUnreadEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (markAsUnread != null) {
@@ -1991,6 +2615,7 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     required TResult Function(String id, bool forBoth) deleteChat,
     required TResult Function(String id) markAsUnread,
     required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
   }) {
     return pinChat(id);
   }
@@ -2005,6 +2630,7 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     TResult? Function(String id, bool forBoth)? deleteChat,
     TResult? Function(String id)? markAsUnread,
     TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
   }) {
     return pinChat?.call(id);
   }
@@ -2019,6 +2645,7 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     TResult Function(String id, bool forBoth)? deleteChat,
     TResult Function(String id)? markAsUnread,
     TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (pinChat != null) {
@@ -2037,6 +2664,8 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     required TResult Function(ChatsDeleteChatEvent value) deleteChat,
     required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
     required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
   }) {
     return pinChat(this);
   }
@@ -2051,6 +2680,8 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
   }) {
     return pinChat?.call(this);
   }
@@ -2065,6 +2696,8 @@ class _$ChatsPinChatEventImpl implements ChatsPinChatEvent {
     TResult Function(ChatsDeleteChatEvent value)? deleteChat,
     TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
     TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
     required TResult orElse(),
   }) {
     if (pinChat != null) {
@@ -2085,4 +2718,154 @@ abstract class ChatsPinChatEvent implements ChatsEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$ChatsPinChatEventImplCopyWith<_$ChatsPinChatEventImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChatsGetCurrentGeopositionEventImplCopyWith<$Res> {
+  factory _$$ChatsGetCurrentGeopositionEventImplCopyWith(
+          _$ChatsGetCurrentGeopositionEventImpl value,
+          $Res Function(_$ChatsGetCurrentGeopositionEventImpl) then) =
+      __$$ChatsGetCurrentGeopositionEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ChatsGetCurrentGeopositionEventImplCopyWithImpl<$Res>
+    extends _$ChatsEventCopyWithImpl<$Res,
+        _$ChatsGetCurrentGeopositionEventImpl>
+    implements _$$ChatsGetCurrentGeopositionEventImplCopyWith<$Res> {
+  __$$ChatsGetCurrentGeopositionEventImplCopyWithImpl(
+      _$ChatsGetCurrentGeopositionEventImpl _value,
+      $Res Function(_$ChatsGetCurrentGeopositionEventImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of ChatsEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ChatsGetCurrentGeopositionEventImpl
+    implements ChatsGetCurrentGeopositionEvent {
+  const _$ChatsGetCurrentGeopositionEventImpl();
+
+  @override
+  String toString() {
+    return 'ChatsEvent.getCurrentGeolocation()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChatsGetCurrentGeopositionEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getChats,
+    required TResult Function() getCategories,
+    required TResult Function(String id) archiveChat,
+    required TResult Function(String id) blockUser,
+    required TResult Function(String id, bool forBoth) deleteChat,
+    required TResult Function(String id) markAsUnread,
+    required TResult Function(String id) pinChat,
+    required TResult Function() getCurrentGeolocation,
+  }) {
+    return getCurrentGeolocation();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getChats,
+    TResult? Function()? getCategories,
+    TResult? Function(String id)? archiveChat,
+    TResult? Function(String id)? blockUser,
+    TResult? Function(String id, bool forBoth)? deleteChat,
+    TResult? Function(String id)? markAsUnread,
+    TResult? Function(String id)? pinChat,
+    TResult? Function()? getCurrentGeolocation,
+  }) {
+    return getCurrentGeolocation?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getChats,
+    TResult Function()? getCategories,
+    TResult Function(String id)? archiveChat,
+    TResult Function(String id)? blockUser,
+    TResult Function(String id, bool forBoth)? deleteChat,
+    TResult Function(String id)? markAsUnread,
+    TResult Function(String id)? pinChat,
+    TResult Function()? getCurrentGeolocation,
+    required TResult orElse(),
+  }) {
+    if (getCurrentGeolocation != null) {
+      return getCurrentGeolocation();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(ChatsGetChatsEvent value) getChats,
+    required TResult Function(ChatsGetCategoriesEvent value) getCategories,
+    required TResult Function(ChatsArchiveChatEvent value) archiveChat,
+    required TResult Function(ChatsBlockUserEvent value) blockUser,
+    required TResult Function(ChatsDeleteChatEvent value) deleteChat,
+    required TResult Function(ChatsMarkAsUnreadEvent value) markAsUnread,
+    required TResult Function(ChatsPinChatEvent value) pinChat,
+    required TResult Function(ChatsGetCurrentGeopositionEvent value)
+        getCurrentGeolocation,
+  }) {
+    return getCurrentGeolocation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(ChatsGetChatsEvent value)? getChats,
+    TResult? Function(ChatsGetCategoriesEvent value)? getCategories,
+    TResult? Function(ChatsArchiveChatEvent value)? archiveChat,
+    TResult? Function(ChatsBlockUserEvent value)? blockUser,
+    TResult? Function(ChatsDeleteChatEvent value)? deleteChat,
+    TResult? Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
+    TResult? Function(ChatsPinChatEvent value)? pinChat,
+    TResult? Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
+  }) {
+    return getCurrentGeolocation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(ChatsGetChatsEvent value)? getChats,
+    TResult Function(ChatsGetCategoriesEvent value)? getCategories,
+    TResult Function(ChatsArchiveChatEvent value)? archiveChat,
+    TResult Function(ChatsBlockUserEvent value)? blockUser,
+    TResult Function(ChatsDeleteChatEvent value)? deleteChat,
+    TResult Function(ChatsMarkAsUnreadEvent value)? markAsUnread,
+    TResult Function(ChatsPinChatEvent value)? pinChat,
+    TResult Function(ChatsGetCurrentGeopositionEvent value)?
+        getCurrentGeolocation,
+    required TResult orElse(),
+  }) {
+    if (getCurrentGeolocation != null) {
+      return getCurrentGeolocation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class ChatsGetCurrentGeopositionEvent implements ChatsEvent {
+  const factory ChatsGetCurrentGeopositionEvent() =
+      _$ChatsGetCurrentGeopositionEventImpl;
 }

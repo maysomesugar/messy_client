@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messy_client/core/utils/constants/element_colors.dart';
 import 'package:messy_client/core/utils/constants/text_colors.dart';
+import 'package:messy_client/features/chats/presentation/widgets/header/position_status_bar.dart';
 
 class ChatsHeader extends StatefulWidget {
   const ChatsHeader({super.key});
@@ -37,14 +38,7 @@ class _ChatsHeaderState extends State<ChatsHeader> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(
-                  '🏡 At home',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: TextColors.grey,
-                    fontWeight: FontWeight.normal,
-                  ),
-                ),
+                PositionStatusBar(),
               ],
             ),
           ),
